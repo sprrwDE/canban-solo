@@ -12,16 +12,17 @@ let database = [];
  * Initializes Database Logic
  */
 async function init() {
-    let data = await getDataFromFirebase('/test');
-    let dataIds = Object.keys(data);
-    setDatabase(data, dataIds)
+    setDatabase()
 }
 
 /**
  * Defines the Database Array 
  */
-function setDatabase(data, dataIds) {
-    database = []
+async function setDatabase() {
+    let data = await getDataFromFirebase('/test');
+    let dataIds = Object.keys(data);
+    testDiv.innerHTML = '';
+    database = [];
     for (let index = 0; index < dataIds.length; index++) {
         database.push({
             objectId: dataIds[index],
@@ -35,7 +36,6 @@ function setDatabase(data, dataIds) {
  * Renders Database in DOM
  */
 function renderDatabaseObjects() {
-    testDiv.innerHTML = '';
     for (let index = 0; index < database.length; index++) {
         testDiv.innerHTML += testTemplate(index);
     }
@@ -74,11 +74,58 @@ async function pushDataToFirebase(path = "", input) {
     }
 }
 
+async function pushEditDataToFirebase(path = "", id, input) {
+    console.log(id)
+    try {
+        await fetch(baseURL + path + id + '.json', {
+            method: "PUT",
+            header: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(input)
+        });
+    }
+    catch (error) {
+        console.log('Error Brudi');
+    } finally {
+        await init()
+    }
+}
+
+/**
+ * Deletes Card at Path (ID)
+ */
+async function deleteCard(path = "", id) {
+    try {
+        await fetch(baseURL + path + id + '.json', {
+            method: "DELETE"
+        });
+    }
+    catch (error) {
+        console.log('Error Brudi');
+    } finally {
+        await init();
+    }
+}
+
 ////////////////////////////////
 // Input References and Form Logic
 
 let testInputValueOne = document.getElementById('test');
 let testInputValueTwo = document.getElementById('test2');
+
+/**
+ * Resets Input Field Values
+ */
+function resetInputFields() {
+    testInputValueOne.value = '';
+    testInputValueTwo.value = '';
+}
+
+function resetEditFields() {
+    editInputRef.value = '';
+    editInputRefTwo.value = '';
+}
 
 /**
  * Gets Input Field Data and Stores Data in Object
@@ -96,25 +143,18 @@ function getInputData(event) {
 }
 
 /**
- * Resets Input Field Values
+ * Gets Edit Input Field Data and Stores Data in Object
  */
-function resetInputFields() {
-    testInputValueOne.value = '';
-    testInputValueTwo.value = '';
-}
-
-/**
- * Deletes Card at Path (ID)
- */
-async function deleteCard(path = "", id) {
-    try {
-        await fetch(baseURL + path + id + '.json', {
-            method: "DELETE"
-        });
+function getEditData(event, id) {
+    event.preventDefault()
+    const editInputRef = document.getElementById(`edit${id}`);
+    const editInputRefTwo = document.getElementById(`edit2-${id}`);
+    let one = editInputRef.value;
+    let two = editInputRefTwo.value;
+    input = {
+        name: one,
+        age: two
     }
-    catch (error) {
-        console.log('Error Brudi');
-    } finally {
-        await init()
-    }
+    pushEditDataToFirebase('test/', id, input);
+    resetEditFields();
 }
