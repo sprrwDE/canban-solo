@@ -8,13 +8,13 @@
     <title>Solo Easy Canban Board</title>
 </head>
 
-<body onload="getDataFromFirebase('/test')">
+<body onload="init()">
     <header></header>
     <main>
         <section class="container">
             <form>
                 <input type="text" id="test">
-                <button type="submit" onclick="push()">submit</button>
+                <button type="submit" onclick="getInputData()">submit</button>
             </form>
             <div id="testdiv"></div>
         </section>
