@@ -1,0 +1,22 @@
+.card {
+    display: flex;
+    padding: 16px;
+    margin: 8px;
+    background-color: aliceblue;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.content {
+    flex: 1;
+}
+
+.card p {
+    width: 100%;
+}
+
+.close:hover {
+    cursor: pointer;
+}

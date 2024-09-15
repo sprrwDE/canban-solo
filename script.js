@@ -3,7 +3,6 @@
 
 const testDiv = document.getElementById('testdiv')
 
-
 ////////////////////////////////
 // Database References and General Logic
 
@@ -40,15 +39,6 @@ function renderDatabaseObjects() {
     for (let index = 0; index < database.length; index++) {
         testDiv.innerHTML += testTemplate(index);
     }
-}
-
-/**
- * Database Template String
- */
-function testTemplate(i) {
-    return `
-    <p>${database[i].data.name}</p>
-    <p>${database[i].objectId}</p>`
 }
 
 ////////////////////////////////
@@ -111,4 +101,20 @@ function getInputData(event) {
 function resetInputFields() {
     testInputValueOne.value = '';
     testInputValueTwo.value = '';
+}
+
+/**
+ * Deletes Card at Path (ID)
+ */
+async function deleteCard(path = "", id) {
+    try {
+        await fetch(baseURL + path + id + '.json', {
+            method: "DELETE"
+        });
+    }
+    catch (error) {
+        console.log('Error Brudi');
+    } finally {
+        await init()
+    }
 }
