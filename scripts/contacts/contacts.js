@@ -130,7 +130,8 @@ function resetEditFields() {
 /**
  * Gets Input Field Data and Stores Data in Object
  */
-function getInputData() {
+function getInputData(event) {
+    event.preventDefault()
     let one = testInputValueOne.value;
     let two = testInputValueTwo.value
     input = {
@@ -144,7 +145,8 @@ function getInputData() {
 /**
  * Gets Edit Input Field Data and Stores Data in Object
  */
-function getEditData(id) {
+function getEditData(event, id) {
+    event.preventDefault()
     const editInputRef = document.getElementById(`edit${id}`);
     const editInputRefTwo = document.getElementById(`edit2-${id}`);
     let one = editInputRef.value;
