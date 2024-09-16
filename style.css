@@ -41,6 +41,30 @@ footer {
     margin-top: 40px;
 }
 
+.maincontainer {
+    display: flex;
+    width: 100%;
+    padding: 16px;
+    gap: 8px;
+}
+
+.input-div {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    background-color: beige;
+    padding: 16px;
+}
+
+.content-div {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+    background-color: beige;
+
+}
+
 /* Link Styling */
 
 a {

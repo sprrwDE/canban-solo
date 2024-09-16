@@ -1,7 +1,8 @@
 ////////////////////////////////
 // DOM References
 
-const testDiv = document.getElementById('testdiv')
+const testDiv = document.getElementById('content-div')
+const leftDiv = document.getElementById('list-left')
 
 ////////////////////////////////
 // Database References and General Logic
@@ -13,6 +14,7 @@ let database = [];
  */
 async function init() {
     testDiv.innerHTML = '';
+    leftDiv.innerHTML = '';
     setDatabase()
 }
 
@@ -38,6 +40,7 @@ async function setDatabase() {
 function renderDatabaseObjects() {
     for (let index = 0; index < database.length; index++) {
         testDiv.innerHTML += testTemplate(index);
+        leftDiv.innerHTML += testTemplate(index);
     }
 }
 
@@ -130,7 +133,8 @@ function resetEditFields() {
 /**
  * Gets Input Field Data and Stores Data in Object
  */
-function getInputData() {
+function getInputData(event) {
+    event.preventDefault()
     let one = testInputValueOne.value;
     let two = testInputValueTwo.value
     input = {
@@ -144,7 +148,8 @@ function getInputData() {
 /**
  * Gets Edit Input Field Data and Stores Data in Object
  */
-function getEditData(id) {
+function getEditData(event, id) {
+    event.preventDefault()
     const editInputRef = document.getElementById(`edit${id}`);
     const editInputRefTwo = document.getElementById(`edit2-${id}`);
     let one = editInputRef.value;
