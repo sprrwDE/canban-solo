@@ -74,8 +74,7 @@ async function pushContactDataToFirebase(path = "", input) {
     }
 }
 
-async function pushEditContactDataToFirebase(path = "", id, input) {
-    console.log(id)
+async function pushEditContactDataToFirebase(path = "", id ="", input) {
     try {
         await fetch(baseURL + path + id + '.json', {
             method: "PUT",
@@ -147,10 +146,10 @@ function getContactInputData(event) {
 /**
  * Gets Edit Input Field Data and Stores Data in Object
  */
-function getContactEditData(event, id) {
+function getEditContactData(event, id) {
     event.preventDefault()
-    const editNameInputRef = document.getElementById(`name-${id}`);
-    const editEmailInputRef = document.getElementById(`email-${id}`);
+    editNameInputRef = document.getElementById(`name-${id}`);
+    editEmailInputRef = document.getElementById(`email-${id}`);
     let newName = editNameInputRef.value;
     let newEmail = editEmailInputRef.value;
     input = {

@@ -61,25 +61,7 @@ async function pushDataToFirebase(path = "", input) {
     try {
         await fetch(boardURL + path + '.json', {
             method: "POST",
-            header: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(input)
-        });
-    }
-    catch (error) {
-        console.log('Error Brudi');
-    } finally {
-        await inititializeBoard()
-    }
-}
-
-async function pushEditDataToFirebase(path = "", id, input) {
-    console.log(id)
-    try {
-        await fetch(boardURL + path + id + '.json', {
-            method: "PUT",
-            header: {
+            headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(input)
@@ -122,11 +104,6 @@ function resetInputFields() {
     testInputValueTwo.value = '';
 }
 
-function resetEditFields() {
-    editInputRef.value = '';
-    editInputRefTwo.value = '';
-}
-
 /**
  * Gets Input Field Data and Stores Data in Object
  */
@@ -142,19 +119,3 @@ function getInputData(event) {
     resetInputFields();
 }
 
-/**
- * Gets Edit Input Field Data and Stores Data in Object
- */
-function getEditData(event, id) {
-    event.preventDefault()
-    const editInputRef = document.getElementById(`edit${id}`);
-    const editInputRefTwo = document.getElementById(`edit2-${id}`);
-    let one = editInputRef.value;
-    let two = editInputRefTwo.value;
-    input = {
-        name: one,
-        age: two
-    }
-    pushEditDataToFirebase('test/', id, input);
-    resetEditFields();
-}
