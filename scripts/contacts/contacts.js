@@ -11,7 +11,7 @@ let contactDb = [];
 /**
  * Initializes Database Logic
  */
-async function init() {
+async function initializeContacts() {
     contactDiv.innerHTML = '';
     setContactDatabase()
 }
@@ -70,7 +70,7 @@ async function pushContactDataToFirebase(path = "", input) {
     catch (error) {
         console.log('Error Brudi');
     } finally {
-        await init()
+        await initializeContacts()
     }
 }
 
@@ -88,7 +88,7 @@ async function pushEditContactDataToFirebase(path = "", id, input) {
     catch (error) {
         console.log('Error Brudi');
     } finally {
-        await init()
+        await initializeContacts()
     }
 }
 
@@ -104,7 +104,7 @@ async function deleteContactCard(path = "", id) {
     catch (error) {
         console.log('Error Brudi');
     } finally {
-        await init();
+        await initializeContacts()
     }
 }
 
