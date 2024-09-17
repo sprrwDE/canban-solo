@@ -15,24 +15,29 @@
         <section class="maincontainer container">
             <div class="input-div">
                 <form>
-                    <h1>create blaa</h1>
+                    <h1>CREATE TASK</h1>
                     <input type="text" id="test">
                     <input type="text" id="test2">
                     <button type="submit" onclick="getInputData(event)">submit</button>
                 </form>
                 <div class="seperator"></div>
                 <form>
-                    <h1>create blubb</h1>
-                    <input type="text" id="test">
-                    <input type="text" id="test2">
-                    <button type="submit" onclick="getInputData(event)">submit</button>
+                    <h1>CREATE CONTACT</h1>
+                    <input type="text" id="name">
+                    <input type="text" id="email">
+                    <button type="submit" onclick="getContactInputData(event)">submit</button>
                 </form>
+
                 <div class="content-list-left" id="list-left"></div>
             </div>
             <div class="content-div" id="content-div"></div>
         </section>
-        <script src="./script.js"></script>
-        <script src="../scripts/templates.js"></script>
+        <!-- Contacts -->
+        <script src="../scripts/contacts/contacts.js"></script>
+        <script src="../scripts/contacts/contact-templates.js"></script>     
+        <!-- Board -->
+        <script src="../scripts/board/add.js"></script>     
+        <script src="../scripts/board/board-templates.js"></script>     
     </main>
     <footer></footer>
 </body>

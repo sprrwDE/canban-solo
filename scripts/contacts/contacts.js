@@ -1,43 +1,43 @@
 ////////////////////////////////
 // DOM References
 
-const testDiv = document.getElementById('testdiv')
+const contactDiv = document.getElementById('list-left')
 
 ////////////////////////////////
 // Database References and General Logic
 
-let database = [];
+let contactDb = [];
 
 /**
  * Initializes Database Logic
  */
 async function init() {
-    testDiv.innerHTML = '';
-    setDatabase()
+    contactDiv.innerHTML = '';
+    setContactDatabase()
 }
 
 /**
  * Defines the Database Array 
  */
-async function setDatabase() {
-    let data = await getDataFromFirebase('/test');
-    let dataIds = Object.keys(data);
-    database = [];
-    for (let index = 0; index < dataIds.length; index++) {
-        database.push({
-            objectId: dataIds[index],
-            data: data[dataIds[index]]
+async function setContactDatabase() {
+    let contactData = await getContactDataFromFirebase('/contacts');
+    let contactDataIds = Object.keys(contactData);
+    contactDb = [];
+    for (let index = 0; index < contactDataIds.length; index++) {
+        contactDb.push({
+            objectId: contactDataIds[index],
+            data: contactData[contactDataIds[index]]
         })
     };
-    renderDatabaseObjects()
+    renderContactDatabaseObjects()
 }
 
 /**
  * Renders Database in DOM
  */
-function renderDatabaseObjects() {
-    for (let index = 0; index < database.length; index++) {
-        testDiv.innerHTML += testTemplate(index);
+function renderContactDatabaseObjects() {
+    for (let index = 0; index < contactDb.length; index++) {
+        contactDiv.innerHTML += contactTemplate(index);
     }
 }
 
@@ -49,7 +49,7 @@ const baseURL = 'https://solo-join-default-rtdb.europe-west1.firebasedatabase.ap
 /**
  * Loads Firebase Realtime DB
  */
-async function getDataFromFirebase(path = "") {
+async function getContactDataFromFirebase(path = "") {
     let fetchGetResponse = await fetch(baseURL + path + '.json')
     return getResponseToJson = await fetchGetResponse.json();
 }
@@ -57,11 +57,11 @@ async function getDataFromFirebase(path = "") {
 /**
  * Push Input Values To Firebase Realtime DB
  */
-async function pushDataToFirebase(path = "", input) {
+async function pushContactDataToFirebase(path = "", input) {
     try {
         await fetch(baseURL + path + '.json', {
             method: "POST",
-            header: {
+            headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(input)
@@ -74,12 +74,12 @@ async function pushDataToFirebase(path = "", input) {
     }
 }
 
-async function pushEditDataToFirebase(path = "", id, input) {
+async function pushEditContactDataToFirebase(path = "", id, input) {
     console.log(id)
     try {
         await fetch(baseURL + path + id + '.json', {
             method: "PUT",
-            header: {
+            headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(input)
@@ -95,7 +95,7 @@ async function pushEditDataToFirebase(path = "", id, input) {
 /**
  * Deletes Card at Path (ID)
  */
-async function deleteCard(path = "", id) {
+async function deleteContactCard(path = "", id) {
     try {
         await fetch(baseURL + path + id + '.json', {
             method: "DELETE"
@@ -111,50 +111,52 @@ async function deleteCard(path = "", id) {
 ////////////////////////////////
 // Input References and Form Logic
 
-let testInputValueOne = document.getElementById('test');
-let testInputValueTwo = document.getElementById('test2');
+let nameInputRef = document.getElementById('name');
+let emailInputRef = document.getElementById('email');
+let editNameInputRef;
+let editEmailInputRef;
 
 /**
  * Resets Input Field Values
  */
-function resetInputFields() {
-    testInputValueOne.value = '';
-    testInputValueTwo.value = '';
+function resetContactInputFields() {
+    nameInputRef.value = '';
+    emailInputRef.value = '';
 }
 
-function resetEditFields() {
-    editInputRef.value = '';
-    editInputRefTwo.value = '';
+function resetEditContactFields() {
+    editNameInputRef.value = '';
+    editEmailInputRef.value = '';
 }
 
 /**
  * Gets Input Field Data and Stores Data in Object
  */
-function getInputData(event) {
+function getContactInputData(event) {
     event.preventDefault()
-    let one = testInputValueOne.value;
-    let two = testInputValueTwo.value
+    let name = nameInputRef.value;
+    let email = emailInputRef.value
     input = {
-        name: one,
-        age: two
+        name: name,
+        email: email
     }
-    pushDataToFirebase('test', input);
-    resetInputFields();
+    pushContactDataToFirebase('contacts', input);
+    resetContactInputFields();
 }
 
 /**
  * Gets Edit Input Field Data and Stores Data in Object
  */
-function getEditData(event, id) {
+function getContactEditData(event, id) {
     event.preventDefault()
-    const editInputRef = document.getElementById(`edit${id}`);
-    const editInputRefTwo = document.getElementById(`edit2-${id}`);
-    let one = editInputRef.value;
-    let two = editInputRefTwo.value;
+    const editNameInputRef = document.getElementById(`name-${id}`);
+    const editEmailInputRef = document.getElementById(`email-${id}`);
+    let newName = editNameInputRef.value;
+    let newEmail = editEmailInputRef.value;
     input = {
-        name: one,
-        age: two
+        name: newName,
+        email: newEmail
     }
-    pushEditDataToFirebase('test/', id, input);
-    resetEditFields();
+    pushEditContactDataToFirebase('contacts/', id, input);
+    resetEditContactFields();
 }

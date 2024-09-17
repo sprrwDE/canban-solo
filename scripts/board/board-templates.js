@@ -3,7 +3,7 @@
  */
 function boardCardTemplate(i) {
     return `
-    <div class="card" id="card-${id}>
+    <div class="card" id="card-${database[i].data.name}>
         <div class="content">
             <p>${database[i].data.name}</p>
             <p>${database[i].data.age}</p>

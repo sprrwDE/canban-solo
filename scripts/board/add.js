@@ -1,7 +1,7 @@
 ////////////////////////////////
 // DOM References
 
-const testDiv = document.getElementById('testdiv')
+const testDiv = document.getElementById('content-div')
 
 ////////////////////////////////
 // Database References and General Logic
@@ -11,11 +11,11 @@ let database = [];
 /**
  * Initializes Database Logic
  */
-async function init() {
+async function inititializeBoard() {
     testDiv.innerHTML = '';
     setDatabase()
 }
-
+    
 /**
  * Defines the Database Array 
  */
@@ -37,20 +37,20 @@ async function setDatabase() {
  */
 function renderDatabaseObjects() {
     for (let index = 0; index < database.length; index++) {
-        testDiv.innerHTML += testTemplate(index);
+        testDiv.innerHTML += boardCardTemplate(index);
     }
 }
 
 ////////////////////////////////
 // Firebase References and Logic
 
-const baseURL = 'https://solo-join-default-rtdb.europe-west1.firebasedatabase.app/'
+const boardURL = 'https://solo-join-default-rtdb.europe-west1.firebasedatabase.app/'
 
 /**
  * Loads Firebase Realtime DB
  */
 async function getDataFromFirebase(path = "") {
-    let fetchGetResponse = await fetch(baseURL + path + '.json')
+    let fetchGetResponse = await fetch(boardURL + path + '.json')
     return getResponseToJson = await fetchGetResponse.json();
 }
 
@@ -59,7 +59,7 @@ async function getDataFromFirebase(path = "") {
  */
 async function pushDataToFirebase(path = "", input) {
     try {
-        await fetch(baseURL + path + '.json', {
+        await fetch(boardURL + path + '.json', {
             method: "POST",
             header: {
                 "Content-Type": "application/json",
@@ -70,14 +70,14 @@ async function pushDataToFirebase(path = "", input) {
     catch (error) {
         console.log('Error Brudi');
     } finally {
-        await init()
+        await inititializeBoard()
     }
 }
 
 async function pushEditDataToFirebase(path = "", id, input) {
     console.log(id)
     try {
-        await fetch(baseURL + path + id + '.json', {
+        await fetch(boardURL + path + id + '.json', {
             method: "PUT",
             header: {
                 "Content-Type": "application/json",
@@ -88,7 +88,7 @@ async function pushEditDataToFirebase(path = "", id, input) {
     catch (error) {
         console.log('Error Brudi');
     } finally {
-        await init()
+        await inititializeBoard()
     }
 }
 
@@ -97,14 +97,14 @@ async function pushEditDataToFirebase(path = "", id, input) {
  */
 async function deleteCard(path = "", id) {
     try {
-        await fetch(baseURL + path + id + '.json', {
+        await fetch(boardURL + path + id + '.json', {
             method: "DELETE"
         });
     }
     catch (error) {
         console.log('Error Brudi');
     } finally {
-        await init();
+        await inititializeBoard()
     }
 }
 
