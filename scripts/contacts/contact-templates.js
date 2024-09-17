@@ -4,7 +4,7 @@
 function contactTemplate(i) {
     return `
     <div class="card" id="card-${contactDb[i].objectId}">
-        <div class="content">
+        <div class="content contact">
             <p>${contactDb[i].data.name}</p>
             <p>${contactDb[i].data.email}</p>
             <form>

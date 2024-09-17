@@ -1,17 +1,28 @@
 .card {
-    display: flex;
     padding: 16px;
     margin: 8px;
     background-color: aliceblue;
-    width: 100%;
     display: flex;
     align-items: center;
     flex-direction: row;
+    border-radius: 16px;
+    width: 100%;
+}
+
+.boardcard {
+    padding: 16px;
+    margin: 8px;
+    background-color: lavender;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 16px;
+    justify-content: space-between;
+    overflow: hidden !important;
 }
 
 .content {
-    flex: 1;
-    width: 100%;
+    flex-direction: column;
 }
 
 .content-list-left {

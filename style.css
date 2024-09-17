@@ -54,6 +54,7 @@ footer {
     width: 400px;
     background-color: beige;
     padding: 16px;
+    border-radius: 16px;
 }
 
 .content-div {
@@ -61,8 +62,8 @@ footer {
     flex-direction: column;
     flex: 1;
     width: 100%;
+    border-radius: 16px;
     background-color: beige;
-
 }
 
 /* Link Styling */
