@@ -8,6 +8,7 @@ const fieldset = document.getElementById('assign');
 // Database References and General Logic
 
 let contactDb = [];
+let currentIndex
 
 /**
  * Initializes Database Logic
@@ -161,4 +162,8 @@ function getEditContactData(event, id) {
     }
     pushEditContactDataToFirebase('contacts/', id, input);
     resetEditContactFields();
+}
+
+function setCurrentIndex(i) {
+    return currentIndex = i;
 }

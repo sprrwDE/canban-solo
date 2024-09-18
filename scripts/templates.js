@@ -26,6 +26,7 @@ function boardCardTemplate(i) {
         <div class="content board">
             <p>${database[i].data.name}</p>
             <p>${database[i].data.age}</p>
+            <p>assigned to: ${database[i].data.assigned}</p>
         </div>
         <div class="close" onclick="deleteCard('test/', '${database[i].objectId}')">X</div>
     </div>`
@@ -36,7 +37,8 @@ function boardCardTemplate(i) {
  */
 function assignToContact(i) {
     return `
-    <div>
-    <input type="radio" id="assign-${contactDb[i].objectId}" name="assign-contact" value="${contactDb[i].objectId}">
-    <label for="assign-${contactDb[i].objectId}">${contactDb[i].data.name}</label></div>`;
+    <div onclick="setCurrentIndex(${i})">
+        <input type="radio" id="assign-${i}" name="assign-contact" value="${contactDb[i].data.name}">
+        <label for="assign-${contactDb[i].objectId}">${contactDb[i].data.name}</label>
+    </div>`;
 }
