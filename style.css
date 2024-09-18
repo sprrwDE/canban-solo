@@ -78,3 +78,72 @@ h1, h2, h3, h4, h5, h6 {
     margin-block-start: 0;
     margin-block-end: 0;
 }
+
+/* Components */
+
+.card {
+    padding: 16px;
+    margin: 8px;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 16px;
+    width: 100%;
+}
+
+.boardcard {
+    padding: 16px;
+    margin: 8px;
+    background-color: lavender;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 16px;
+    justify-content: space-between;
+    overflow: hidden !important;
+}
+
+.content {
+    flex-direction: column;
+}
+
+.content-list-left {
+    margin: 16px;
+}
+
+.card p {
+    width: 100%;
+}
+
+.close:hover {
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
+}
+
+.seperator {
+    height: 40px;
+}
+
+.assign {
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    border: unset;
+    border-radius: 16px;
+    padding: 8px;
+    margin: 8px 0;  
+}
+
+.task {
+    display: flex;
+    flex-direction: column;
+    background-color: lavender;
+    border: unset;
+    border-radius: 16px;
+    padding: 8px;
+    margin: 8px 0;  
+}

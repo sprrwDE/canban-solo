@@ -1,7 +1,8 @@
 ////////////////////////////////
 // DOM References
 
-const contactDiv = document.getElementById('list-left')
+const contactDiv = document.getElementById('list-left');
+const fieldset = document.getElementById('assign');
 
 ////////////////////////////////
 // Database References and General Logic
@@ -13,6 +14,7 @@ let contactDb = [];
  */
 async function initializeContacts() {
     contactDiv.innerHTML = '';
+    fieldset.innerHTML = '';
     setContactDatabase()
 }
 
@@ -38,6 +40,7 @@ async function setContactDatabase() {
 function renderContactDatabaseObjects() {
     for (let index = 0; index < contactDb.length; index++) {
         contactDiv.innerHTML += contactTemplate(index);
+        fieldset.innerHTML += assignToContact(index);
     }
 }
 

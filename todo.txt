@@ -1,0 +1,11 @@
+// weiter stylen
+// DB auslagern (eine Push To Firebase mit standardmäßig id = "" dann id als parameter übergeben)
+// logik dann auslagern und splitten in inputs, database, render, drag+drop?
+// addtask bauen mit status = urgent, medium, low
+// kontakte assigned to forloop rendern in task form
+// filter funktionen 
+// drag and drop
+// simple login
+
+// Funktion um nur die jeweilige Karte zu Updaten nach edit (find ?)
+// Allgemein Array Methoden vertiefen

@@ -14,10 +14,14 @@
     <main>
         <section class="maincontainer container">
             <div class="input-div">
-                <form>
+                <form class="task">
                     <h1>CREATE TASK</h1>
-                    <input type="text" id="test">
+                    <p>headline</p>
+                    <input type="text" id="test">   
+                    <p>text</p>
                     <input type="text" id="test2">
+                    <p>assigned to</p>
+                    <fieldset class="assign" id="assign"></fieldset>                    
                     <button type="submit" onclick="getInputData(event)">submit</button>
                 </form>
                 <div class="seperator"></div>
@@ -35,12 +39,10 @@
         <!-- Main & Misc -->
         <script src="./script.js"></script>
         <!-- Contacts -->
-        <script src="../scripts/contacts/contacts.js"></script>
-        <script src="../scripts/contacts/contact-templates.js"></script>     
-        <!-- Board -->
-        <script src="../scripts/board/add.js"></script>     
-        <script src="../scripts/board/board.js"></script>     
-        <script src="../scripts/board/board-templates.js"></script>     
+        <script src="./scripts/contacts.js"></script>
+        <script src="./scripts/addtask.js"></script>     
+        <script src="./scripts/board.js"></script>     
+        <script src="./scripts/templates.js"></script>     
     </main>
     <footer></footer>
 </body>
