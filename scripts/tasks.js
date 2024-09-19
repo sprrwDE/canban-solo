@@ -16,7 +16,8 @@ function getInputData(event) {
         headline: headlineRef.value,
         text: textRef.value,
         status: status.value,
-        assigned: assignedTo.value
+        assigned: assignedTo.value,
+        subtask: {task: ''}
     }
     pushDataToFirebase('tasks', input);
     resetInputFields();

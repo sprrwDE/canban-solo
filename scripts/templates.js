@@ -34,12 +34,19 @@ function contactTemplate(i) {
  */
 function urgentCardTemplate(i) {
     return `
-    <div class="boardcard" id="card-${urgent[i].data.name}" draggable="true" ondragstart="startDragging('${urgent[i].objectId}')">
+    <div class="boardcard" draggable="true" ondragstart="startDragging('${urgent[i].objectId}')">
         <div class="content board">
             <p>${urgent[i].data.headline}</p>
             <p>${urgent[i].data.text}</p>
             <p>status: ${urgent[i].data.status}</p>
             <p>assigned to: ${urgent[i].data.assigned}</p>
+
+            <div class="render-subtask" id="card-${urgent[i].objectId}></div>
+            <div class="subtask-input">
+                <input type="text" id="sub-${urgent[i].objectId}" placeholder="subtask">
+                <button class="margin-low" type="submit" onclick="">add subtask</button>
+            </div>
+
         </div>
         <div class="close" onclick="deleteCard('tasks/', '${urgent[i].objectId}')">X</div>
     </div>`
@@ -56,13 +63,20 @@ function mediumCardTemplate(i) {
             <p>${medium[i].data.text}</p>
             <p>status: ${medium[i].data.status}</p>
             <p>assigned to: ${medium[i].data.assigned}</p>
+
+            <div class="render-subtask" id="sub-${medium[i].objectId}></div>
+            <div class="subtask-input">
+                <input type="text" id="name-${medium[i].objectId}" placeholder="subtask">
+                <button class="margin-low" type="submit" onclick="">add subtask</button>
+            </div>
+
         </div>
         <div class="close" onclick="deleteCard('tasks/', '${medium[i].objectId}')">X</div>
     </div>`
 }
 
 /**
- * Medium Template String
+ * Low Template String
  */
 function lowCardTemplate(i) {
     return `
@@ -72,6 +86,13 @@ function lowCardTemplate(i) {
             <p>${low[i].data.text}</p>
             <p>status: ${low[i].data.status}</p>
             <p>assigned to: ${low[i].data.assigned}</p>
+
+            <div class="render-subtask" id="card-${low[i].objectId}></div>
+            <div class="subtask-input">
+                <input type="text" id="sub-${low[i].objectId}" placeholder="subtask">
+                <button class="margin-low" type="submit" onclick="">add subtask</button>
+            </div>
+
         </div>
         <div class="close" onclick="deleteCard('tasks/', '${low[i].objectId}')">X</div>
     </div>`

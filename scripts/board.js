@@ -18,4 +18,3 @@ function moveTo(status) {
     }
     pushEditDataToFirebase(path = "tasks/", currentTaskId, input)
 }
-
