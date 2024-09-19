@@ -19,18 +19,50 @@ function contactTemplate(i) {
 }
 
 /**
- * Board Template String
+ * Urgent Template String
  */
-function boardCardTemplate(i) {
+function urgentCardTemplate(i) {
     return `
-    <div class="boardcard" id="card-${database[i].data.name}" draggable="true">
+    <div class="boardcard" id="card-${urgent[i].data.name}" draggable="true">
         <div class="content board">
-            <p>${database[i].data.name}</p>
-            <p>${database[i].data.age}</p>
-            <p>status: ${database[i].data.status}</p>
-            <p>assigned to: ${database[i].data.assigned}</p>
+            <p>${urgent[i].data.name}</p>
+            <p>${urgent[i].data.age}</p>
+            <p>status: ${urgent[i].data.status}</p>
+            <p>assigned to: ${urgent[i].data.assigned}</p>
         </div>
-        <div class="close" onclick="deleteCard('test/', '${database[i].objectId}')">X</div>
+        <div class="close" onclick="deleteCard('test/', '${urgent[i].objectId}')">X</div>
+    </div>`
+}
+
+/**
+ * Medium Template String
+ */
+function mediumCardTemplate(i) {
+    return `
+    <div class="boardcard" id="card-${medium[i].data.name}" draggable="true">
+        <div class="content board">
+            <p>${medium[i].data.name}</p>
+            <p>${medium[i].data.age}</p>
+            <p>status: ${medium[i].data.status}</p>
+            <p>assigned to: ${medium[i].data.assigned}</p>
+        </div>
+        <div class="close" onclick="deleteCard('test/', '${medium[i].objectId}')">X</div>
+    </div>`
+}
+
+/**
+ * Medium Template String
+ */
+function lowCardTemplate(i) {
+    return `
+    <div class="boardcard" id="card-${low[i].data.name}" draggable="true">
+        <div class="content board">
+            <p>${low[i].data.name}</p>
+            <p>${low[i].data.age}</p>
+            <p>status: ${low[i].data.status}</p>
+            <p>assigned to: ${low[i].data.assigned}</p>
+        </div>
+        <div class="close" onclick="deleteCard('test/', '${low[i].objectId}')">X</div>
     </div>`
 }
 

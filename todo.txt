@@ -4,8 +4,7 @@
     // firebase funktionen vereinfachen und zusammenfassen?
 
 // Board:
-    // addtask bauen mit status = urgent, medium, low
-    // filter funktionen nach status: 3 Spalten in Rechter Liste
+    // filter funktionen nach status
     // drag and drop
     // subtasks hinzufügen?
 

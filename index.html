@@ -14,10 +14,11 @@
     <main>
         <section class="maincontainer container">
             <div class="input-div">
+                <!-- Form Task -->
                 <form class="task">
                     <h1>CREATE TASK</h1>
                     <p>headline</p>
-                    <input type="text" id="test">   
+                    <input type="text" id="test">
                     <p>text</p>
                     <input type="text" id="test2">
                     <p>status</p>
@@ -25,12 +26,13 @@
                         <option value="urgent">urgent</option>
                         <option value="medium">medium</option>
                         <option value="low">low</option>
-                      </select>                      
+                    </select>
                     <p class="margin-low">assigned to</p>
-                    <fieldset class="assign" id="assign"></fieldset>                    
+                    <fieldset class="assign" id="assign"></fieldset>
                     <button type="submit" onclick="getInputData(event)">submit</button>
                 </form>
                 <div class="seperator"></div>
+                <!-- Form Contact -->
                 <form class="task">
                     <h1>CREATE CONTACT</h1>
                     <P>name</P>
@@ -39,22 +41,31 @@
                     <input type="text" id="email">
                     <button class="margin-low" type="submit" onclick="getContactInputData(event)">submit</button>
                 </form>
+                <!-- Renders Contact List -->
                 <h2 class="margin">CONTACT LIST</h2>
                 <div class="content-list-left" id="list-left"></div>
             </div>
+            <!-- Renders Tasks -->
             <div class="content-div">
-                <div class="content-column" id="content-div"></div>
-                <div class="content-column" id="content-div"></div>
-                <div class="content-column" id="content-div"></div>
+                <div class="content-column">
+                    <h1 class="trick">low</h1>
+                    <div id="low"></div>
+                </div>
+                <div class="content-column">
+                    <h1 class="trick">medium</h1>
+                    <div id="medium"></div>
+                </div>
+                <div class="content-column">
+                    <h1 class="trick">urgent</h1>
+                    <div id="urgent"></div>
+                </div>
             </div>
         </section>
-        <!-- Main & Misc -->
         <script src="./script.js"></script>
-        <!-- Contacts -->
         <script src="./scripts/contacts.js"></script>
-        <script src="./scripts/addtask.js"></script>     
-        <script src="./scripts/board.js"></script>     
-        <script src="./scripts/templates.js"></script>     
+        <script src="./scripts/addtask.js"></script>
+        <script src="./scripts/board.js"></script>
+        <script src="./scripts/templates.js"></script>
     </main>
     <footer></footer>
 </body>

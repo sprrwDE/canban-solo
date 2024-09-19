@@ -2,17 +2,25 @@
 // DOM References
 
 const testDiv = document.getElementById('content-div')
+let lowRef = document.getElementById('low');
+let mediumRef = document.getElementById('medium');
+let urgentRef = document.getElementById('urgent');
 
 ////////////////////////////////
 // Database References and General Logic
 
 let database = [];
+let urgent = [];
+let medium = [];
+let low = [];
 
 /**
  * Initializes Database Logic
  */
 async function inititializeBoard() {
-    testDiv.innerHTML = '';
+    lowRef.innerHTML = '';
+    mediumRef.innerHTML = '';
+    urgentRef.innerHTML = '';
     setDatabase()
 }
     
@@ -29,16 +37,7 @@ async function setDatabase() {
             data: data[dataIds[index]]
         })
     };
-    renderDatabaseObjects()
-}
-
-/**
- * Renders Database in DOM
- */
-function renderDatabaseObjects() {
-    for (let index = 0; index < database.length; index++) {
-        testDiv.innerHTML += boardCardTemplate(index);
-    }
+    setFilters();
 }
 
 ////////////////////////////////
