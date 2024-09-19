@@ -29,6 +29,12 @@
                     </select>
                     <p class="margin-low">assigned to</p>
                     <fieldset class="assign" id="assign"></fieldset>
+                    <input type="text" id="sub-input" placeholder="subtask">
+                    <button type="submit" onclick="addSubtask(event)">add</button>
+                    <div class="sub-form">
+                        <ul id="sub-form">
+                        </ul>
+                    </div>
                     <button type="submit" onclick="getInputData(event)">submit</button>
                 </form>
                 <div class="seperator"></div>

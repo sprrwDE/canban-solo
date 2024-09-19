@@ -4,6 +4,7 @@
 // DOM References
 let headlineRef = document.getElementById('headline');
 let textRef = document.getElementById('text');
+let subRef = document.getElementById('sub-input');
 
 /**
  * Gets Input Field Data and Stores Data in Object
@@ -17,11 +18,42 @@ function getInputData(event) {
         text: textRef.value,
         status: status.value,
         assigned: assignedTo.value,
-        subtask: {task: ''}
+        subtask: ''
     }
     pushDataToFirebase('tasks', input);
     resetInputFields();
 }
+
+
+
+
+let subFormRef = document.getElementById('sub-form')
+let subInputRef = document.getElementById('sub-input');
+let subtasks = [];
+
+function addSubtask(event) {
+    event.preventDefault();
+    subtasks.push(subInputRef.value)
+    console.log(subtasks)
+    renderSubtasks();
+}
+
+function renderSubtasks() {
+    subFormRef.innerHTML = '';
+    for (let i = 0; i < subtasks.length; i++) {
+        subFormRef.innerHTML += subTaskTemplate(i)
+    }
+}
+
+function subTaskTemplate(i) {
+    return `
+    <li>${subtasks[i]}</li>`
+}
+
+// Subtask In Objekt Umwaldeln und an input übergeben
+
+
+
 
 /**
  * Resets Input Field Values
@@ -29,6 +61,8 @@ function getInputData(event) {
 function resetInputFields() {
     headlineRef.value = '';
     textRef.value = '';
+    subRef.value = '';
+    subFormRef.innerHTML = '';
 }
 
 ////////////////////////////////
@@ -52,7 +86,7 @@ async function inititializeBoard() {
     lowRef.innerHTML = '';
     mediumRef.innerHTML = '';
     urgentRef.innerHTML = '';
-    setDatabase()
+    setDatabase();
 }
     
 /**

@@ -1,13 +1,18 @@
 // Board:
     // subtasks hinzufügen? 
         // Einfaches Textfeld oder Liste Array? 
-        // Mit Edit Form editierbar machen
-        // mit X Löschbar machen
+        // Mit Edit Form editierbar machen (put fetch id + sub als url parameter?)
+        // mit X Löschbar machen (delete fetch id + sub als url parameter?)
+        // subtask auch in formular einfügen
+        // objekt (gleich als liste rendern? Objekt dann mit pushen)
+        // object values 
+        // Wie array in objekt umwandeln? reduce? als parameter leeres objekt, syntax ergooglen mit accumulator {}
 
 // Contacts
     // Initialen bestimmen 
     // Render nach Initialen
-        // mit contactDb arbeiten (reduce, sort, map, object entries?)
+        // mit contactDb arbeiten 
+        // reduce scheint der way to go? als parameter leeres objekt, syntax ergooglen mit accumulator {}
         // neues objekt "sortedContacts" 
         // 2 For schleifen 
         // initial =  contact .charAt(0).toUpperCase()
@@ -27,5 +32,6 @@
 // Update und Performance:
     // Funktion um nur die jeweilige Karte zu Updaten nach edit (find / findindex oder so?)
 
-->> Allgemein Array Methoden vertiefen
+->> Allgemein Array Methoden vertiefen (reduce, sort, map, filter, object.entries?)
+->> Arrow Functions vertiefen
 ->> weiter stylen wenn bock
