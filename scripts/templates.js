@@ -9,6 +9,12 @@ function assignToContact(i) {
     </div>`;
 }
 
+
+function subTaskTemplate(i) {
+    return `
+    <li>${subtasks[i]} | <span class="pointer" onclick="deleteSubtask(${[i]})">x</span></li>`
+} 
+
 /**
  * Contact Template String
  */

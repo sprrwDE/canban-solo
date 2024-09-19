@@ -24,8 +24,7 @@ function getInputData(event) {
     resetInputFields();
 }
 
-
-
+///////////////////////
 
 let subFormRef = document.getElementById('sub-form')
 let subInputRef = document.getElementById('sub-input');
@@ -36,6 +35,7 @@ function addSubtask(event) {
     subtasks.push(subInputRef.value)
     console.log(subtasks)
     renderSubtasks();
+    subInputRef.value = '';
 }
 
 function renderSubtasks() {
@@ -45,9 +45,9 @@ function renderSubtasks() {
     }
 }
 
-function subTaskTemplate(i) {
-    return `
-    <li>${subtasks[i]}</li>`
+function deleteSubtask(i) {
+    subtasks.splice([i], 1);
+    renderSubtasks();
 }
 
 // Subtask In Objekt Umwaldeln und an input übergeben

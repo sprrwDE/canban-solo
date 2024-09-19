@@ -155,6 +155,17 @@ button {
     height: 100%;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
+.sub-form {
+    padding: 8px 24px;
+    background-color: aliceblue;
+    border-radius: 16px;
+    margin: 8px 0;
+}
+
 .margin {
     margin: 32px 8px 4px;
 }
