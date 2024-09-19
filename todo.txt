@@ -1,11 +1,29 @@
-// weiter stylen
-// DB auslagern (eine Push To Firebase mit standardmäßig id = "" dann id als parameter übergeben)
-// logik dann auslagern und splitten in inputs, database, render, drag+drop?
-// addtask bauen mit status = urgent, medium, low
-// mehrere assigns ermöglichen, array in object struktur? querySelector.all
-// filter funktionen 
-// drag and drop
-// simple login
+// Allgemeine Struktur improvements
+    // DB auslagern (eine Push To Firebase mit standardmäßig id = "" dann id als parameter übergeben)
+    // logik dann auslagern und splitten in forms, db, render, drag+drop?
+    // firebase funktionen vereinfachen und zusammenfassen?
 
-// Funktion um nur die jeweilige Karte zu Updaten nach edit (find ?)
-// Allgemein Array Methoden vertiefen
+// Board:
+    // addtask bauen mit status = urgent, medium, low
+    // filter funktionen nach status: 3 Spalten in Rechter Liste
+    // drag and drop
+    // subtasks hinzufügen?
+
+// forms:
+    // form validation
+    // mehrere assigns ermöglichend durch mehrfachauswahl, array in object struktur? querySelector.all
+
+// Contacts
+    // Initialen bestimmen in globaler js
+    // farben
+    // Render nach Initialen -> mit contactDb arbeiten, 2 For schleifen
+
+// Render:
+    // Funktion um nur die jeweilige Karte zu Updaten nach edit (find ?)
+
+// login 
+    // bauen mit if pw === x / else?
+
+// ->> Allgemein Array Methoden vertiefen
+
+// weiter stylen
