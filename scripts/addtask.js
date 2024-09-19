@@ -95,7 +95,6 @@ async function deleteCard(path = "", id) {
 
 let testInputValueOne = document.getElementById('test');
 let testInputValueTwo = document.getElementById('test2');
-let testInputValueThree = document.getElementById(`assign-${currentIndex}`)
 
 /**
  * Resets Input Field Values
@@ -112,10 +111,12 @@ function getInputData(event) {
     event.preventDefault()
     let one = testInputValueOne.value;
     let two = testInputValueTwo.value
+    let three = document.getElementById('status');
     let assignedTo = document.querySelector('input[name="assign-contact"]:checked');
     input = {
         name: one,
         age: two,
+        status: three.value,
         assigned: assignedTo.value
     }
     pushDataToFirebase('test', input);

@@ -2,7 +2,7 @@
 // DB auslagern (eine Push To Firebase mit standardmäßig id = "" dann id als parameter übergeben)
 // logik dann auslagern und splitten in inputs, database, render, drag+drop?
 // addtask bauen mit status = urgent, medium, low
-// kontakte assigned to forloop rendern in task form
+// mehrere assigns ermöglichen, array in object struktur? querySelector.all
 // filter funktionen 
 // drag and drop
 // simple login

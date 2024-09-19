@@ -5,8 +5,9 @@ function contactTemplate(i) {
     return `
     <div class="card" id="card-${contactDb[i].objectId}">
         <div class="content contact">
-            <p>${contactDb[i].data.name}</p>
-            <p>${contactDb[i].data.email}</p>
+            <p>name: ${contactDb[i].data.name}</p>
+            <p>email: ${contactDb[i].data.email}</p>
+            <h4>Edit<h4>
             <form>
                 <input type="text" id="name-${contactDb[i].objectId}">
                 <input type="text" id="email-${contactDb[i].objectId}">
@@ -26,6 +27,7 @@ function boardCardTemplate(i) {
         <div class="content board">
             <p>${database[i].data.name}</p>
             <p>${database[i].data.age}</p>
+            <p>status: ${database[i].data.status}</p>
             <p>assigned to: ${database[i].data.assigned}</p>
         </div>
         <div class="close" onclick="deleteCard('test/', '${database[i].objectId}')">X</div>

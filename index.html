@@ -20,18 +20,26 @@
                     <input type="text" id="test">   
                     <p>text</p>
                     <input type="text" id="test2">
+                    <p>status</p>
+                    <select name="status" id="status">
+                        <option value="urgent">urgent</option>
+                        <option value="medium">medium</option>
+                        <option value="low">low</option>
+                      </select>                      
                     <p>assigned to</p>
                     <fieldset class="assign" id="assign"></fieldset>                    
                     <button type="submit" onclick="getInputData(event)">submit</button>
                 </form>
                 <div class="seperator"></div>
-                <form>
+                <form class="task">
                     <h1>CREATE CONTACT</h1>
+                    <P>name</P>
                     <input type="text" id="name">
+                    <P>email</P>
                     <input type="text" id="email">
                     <button type="submit" onclick="getContactInputData(event)">submit</button>
                 </form>
-
+                <h2>CONTACT LIST</h2>
                 <div class="content-list-left" id="list-left"></div>
             </div>
             <div class="content-div" id="content-div"></div>
