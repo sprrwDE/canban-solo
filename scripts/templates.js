@@ -1,4 +1,15 @@
 /**
+ * Task Form Assign to Contact Template String
+ */
+function assignToContact(i) {
+    return `
+    <div onclick="setCurrentIndex(${i})">
+        <input type="radio" id="assign-${i}" name="assign-contact" value="${contactDb[i].data.name}">
+        <label for="assign-${contactDb[i].objectId}">${contactDb[i].data.name}</label>
+    </div>`;
+}
+
+/**
  * Contact Template String
  */
 function contactTemplate(i) {
@@ -14,7 +25,7 @@ function contactTemplate(i) {
                 <button class="margin-low" type="submit" onclick="getEditContactData(event, '${contactDb[i].objectId}')">submit</button>
             </form>
         </div>
-        <div class="close" onclick="deleteContactCard('contacts/', '${contactDb[i].objectId}')">X</div>
+        <div class="close" onclick="deleteCard('contacts/', '${contactDb[i].objectId}')">X</div>
     </div>`
 }
 
@@ -64,15 +75,4 @@ function lowCardTemplate(i) {
         </div>
         <div class="close" onclick="deleteCard('test/', '${low[i].objectId}')">X</div>
     </div>`
-}
-
-/**
- * Assign to Contact
- */
-function assignToContact(i) {
-    return `
-    <div onclick="setCurrentIndex(${i})">
-        <input type="radio" id="assign-${i}" name="assign-contact" value="${contactDb[i].data.name}">
-        <label for="assign-${contactDb[i].objectId}">${contactDb[i].data.name}</label>
-    </div>`;
 }

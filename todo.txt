@@ -4,8 +4,8 @@
     // firebase funktionen vereinfachen und zusammenfassen?
 
 // Board:
-    // filter funktionen nach status
     // drag and drop
+        //  wie status ändern?
     // subtasks hinzufügen?
 
 // forms:
