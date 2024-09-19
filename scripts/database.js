@@ -1,5 +1,5 @@
 /**
- * Loads Firebase Realtime DB
+ * Loads Firebase Realtime DB (GET)
  */
 async function getDataFromFirebase(path = "") {
     let fetchGetResponse = await fetch(baseURL + path + '.json')
@@ -61,4 +61,3 @@ async function deleteCard(path = "", id = "") {
         await inititializeBoard();
     }
 }
-

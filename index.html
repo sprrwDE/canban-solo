@@ -49,15 +49,15 @@
             <div class="content-div">
                 <div class="content-column">
                     <h1 class="trick">low</h1>
-                    <div id="low"></div>
+                    <div class="draggable" id="low" ondragover="allowDrop(event)" ondrop="moveTo('low')"></div>
                 </div>
                 <div class="content-column">
                     <h1 class="trick">medium</h1>
-                    <div id="medium"></div>
+                    <div class="draggable" id="medium" ondragover="allowDrop(event)" ondrop="moveTo('medium')"></div>
                 </div>
                 <div class="content-column">
                     <h1 class="trick">urgent</h1>
-                    <div id="urgent"></div>
+                    <div class="draggable" id="urgent" ondragover="allowDrop(event)" ondrop="moveTo('urgent')"></div>
                 </div>
             </div>
         </section>
@@ -65,8 +65,8 @@
         <script src="./scripts/database.js"></script>
         <script src="./scripts/contacts.js"></script>
         <script src="./scripts/tasks.js"></script>
-        <script src="./scripts/board.js"></script>
         <script src="./scripts/templates.js"></script>
+        <script src="./scripts/board.js"></script>
     </main>
     <footer></footer>
 </body>

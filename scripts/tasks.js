@@ -1,23 +1,9 @@
 ////////////////////////////////
+// Form Logic
+
 // DOM References
-
-let lowRef = document.getElementById('low');
-let mediumRef = document.getElementById('medium');
-let urgentRef = document.getElementById('urgent');
-
-////////////////////////////////
-// Input References and Form Logic
-
 let headlineRef = document.getElementById('headline');
 let textRef = document.getElementById('text');
-
-/**
- * Resets Input Field Values
- */
-function resetInputFields() {
-    headlineRef.value = '';
-    textRef.value = '';
-}
 
 /**
  * Gets Input Field Data and Stores Data in Object
@@ -36,8 +22,21 @@ function getInputData(event) {
     resetInputFields();
 }
 
+/**
+ * Resets Input Field Values
+ */
+function resetInputFields() {
+    headlineRef.value = '';
+    textRef.value = '';
+}
+
 ////////////////////////////////
 // Render Logic
+
+// DOM References
+let lowRef = document.getElementById('low');
+let mediumRef = document.getElementById('medium');
+let urgentRef = document.getElementById('urgent');
 
 // Database References 
 let database = [];
@@ -71,6 +70,9 @@ async function setDatabase() {
     setFilters();
 }
 
+////////////////////////////////
+// Filter Logic
+
 /**
  * Filters Database
  */
@@ -78,9 +80,6 @@ function setFilters() {
     urgent = database.filter(v => v.data.status === 'urgent');
     medium = database.filter(v => v.data.status === 'medium');
     low = database.filter(v => v.data.status === 'low');
-    console.log('Urgent:', urgent);
-    console.log('Medium:', medium);
-    console.log('Low:', low);
     renderFilteredDatabaseObjects(urgent, medium, low);
 }
 

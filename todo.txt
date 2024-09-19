@@ -1,25 +1,26 @@
-// tasks variablen umbenennen
-
 // Board:
     // drag and drop
-        //  wie status ändern?
-    // subtasks hinzufügen?
+        //  wie status ändern onkeyrelease?
+        // subtasks hinzufügen? 
+            // Einfaches Textfeld oder Liste Array? Mit Edit Form editierbar machen, mit X Löschbar machen
 
 // forms:
-    // form validation
-    // mehrere assigns ermöglichend durch mehrfachauswahl, array in object struktur? querySelector.all
+    // form validation hinzufügen?
+    // mehrere assignedTo ermöglichen durch mehrfachauswahl
+        // array in object struktur? querySelector.all?
 
 // Contacts
     // Initialen bestimmen in globaler js
     // farben
-    // Render nach Initialen -> mit contactDb arbeiten, 2 For schleifen
+    // Render nach Initialen
+        // mit contactDb arbeiten, 2 For schleifen
+        // Array Sort CharAt1 oder so
 
-// Render:
-    // Funktion um nur die jeweilige Karte zu Updaten nach edit (find ?)
-
-// login 
+// Login 
     // bauen mit if pw === x / else?
 
-// ->> Allgemein Array Methoden vertiefen
+// Update und Performance:
+    // Funktion um nur die jeweilige Karte zu Updaten nach edit (find / findindex oder so?)
 
-// weiter stylen
+->> Allgemein Array Methoden vertiefen
+->> weiter stylen wenn bock

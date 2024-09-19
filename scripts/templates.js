@@ -34,14 +34,14 @@ function contactTemplate(i) {
  */
 function urgentCardTemplate(i) {
     return `
-    <div class="boardcard" id="card-${urgent[i].data.name}" draggable="true">
+    <div class="boardcard" id="card-${urgent[i].data.name}" draggable="true" ondragstart="startDragging('${urgent[i].objectId}')">
         <div class="content board">
-            <p>${urgent[i].data.name}</p>
-            <p>${urgent[i].data.age}</p>
+            <p>${urgent[i].data.headline}</p>
+            <p>${urgent[i].data.text}</p>
             <p>status: ${urgent[i].data.status}</p>
             <p>assigned to: ${urgent[i].data.assigned}</p>
         </div>
-        <div class="close" onclick="deleteCard('test/', '${urgent[i].objectId}')">X</div>
+        <div class="close" onclick="deleteCard('tasks/', '${urgent[i].objectId}')">X</div>
     </div>`
 }
 
@@ -50,14 +50,14 @@ function urgentCardTemplate(i) {
  */
 function mediumCardTemplate(i) {
     return `
-    <div class="boardcard" id="card-${medium[i].data.name}" draggable="true">
+    <div class="boardcard" id="card-${medium[i].data.name}" draggable="true" ondragstart="startDragging('${medium[i].objectId}')">
         <div class="content board">
             <p>${medium[i].data.headline}</p>
             <p>${medium[i].data.text}</p>
             <p>status: ${medium[i].data.status}</p>
             <p>assigned to: ${medium[i].data.assigned}</p>
         </div>
-        <div class="close" onclick="deleteCard('test/', '${medium[i].objectId}')">X</div>
+        <div class="close" onclick="deleteCard('tasks/', '${medium[i].objectId}')">X</div>
     </div>`
 }
 
@@ -66,13 +66,13 @@ function mediumCardTemplate(i) {
  */
 function lowCardTemplate(i) {
     return `
-    <div class="boardcard" id="card-${low[i].data.name}" draggable="true">
+    <div class="boardcard" id="card-${low[i].data.name}" draggable="true" ondragstart="startDragging('${low[i].objectId}')">
         <div class="content board">
-            <p>${low[i].data.name}</p>
-            <p>${low[i].data.age}</p>
+            <p>${low[i].data.headline}</p>
+            <p>${low[i].data.text}</p>
             <p>status: ${low[i].data.status}</p>
             <p>assigned to: ${low[i].data.assigned}</p>
         </div>
-        <div class="close" onclick="deleteCard('test/', '${low[i].objectId}')">X</div>
+        <div class="close" onclick="deleteCard('tasks/', '${low[i].objectId}')">X</div>
     </div>`
 }
