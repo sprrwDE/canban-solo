@@ -52,8 +52,8 @@ function mediumCardTemplate(i) {
     return `
     <div class="boardcard" id="card-${medium[i].data.name}" draggable="true">
         <div class="content board">
-            <p>${medium[i].data.name}</p>
-            <p>${medium[i].data.age}</p>
+            <p>${medium[i].data.headline}</p>
+            <p>${medium[i].data.text}</p>
             <p>status: ${medium[i].data.status}</p>
             <p>assigned to: ${medium[i].data.assigned}</p>
         </div>

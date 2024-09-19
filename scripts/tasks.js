@@ -8,15 +8,15 @@ let urgentRef = document.getElementById('urgent');
 ////////////////////////////////
 // Input References and Form Logic
 
-let testInputValueOne = document.getElementById('test');
-let testInputValueTwo = document.getElementById('test2');
+let headlineRef = document.getElementById('headline');
+let textRef = document.getElementById('text');
 
 /**
  * Resets Input Field Values
  */
 function resetInputFields() {
-    testInputValueOne.value = '';
-    testInputValueTwo.value = '';
+    headlineRef.value = '';
+    textRef.value = '';
 }
 
 /**
@@ -24,17 +24,15 @@ function resetInputFields() {
  */
 function getInputData(event) {
     event.preventDefault()
-    let one = testInputValueOne.value;
-    let two = testInputValueTwo.value
-    let three = document.getElementById('status');
+    let status = document.getElementById('status');
     let assignedTo = document.querySelector('input[name="assign-contact"]:checked');
     input = {
-        name: one,
-        age: two,
-        status: three.value,
+        headline: headlineRef.value,
+        text: textRef.value,
+        status: status.value,
         assigned: assignedTo.value
     }
-    pushDataToFirebase('test', input);
+    pushDataToFirebase('tasks', input);
     resetInputFields();
 }
 
@@ -61,7 +59,7 @@ async function inititializeBoard() {
  * Defines the Database Array 
  */
 async function setDatabase() {
-    let data = await getDataFromFirebase('/test');
+    let data = await getDataFromFirebase('/tasks');
     let dataIds = Object.keys(data);
     database = [];
     for (let index = 0; index < dataIds.length; index++) {

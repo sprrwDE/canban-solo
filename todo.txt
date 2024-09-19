@@ -1,7 +1,4 @@
-// Allgemeine Struktur improvements
-    // DB auslagern (eine Push To Firebase mit standardmäßig id = "" dann id als parameter übergeben)
-    // logik dann auslagern und splitten in forms, db, render, drag+drop?
-    // firebase funktionen vereinfachen und zusammenfassen?
+// tasks variablen umbenennen
 
 // Board:
     // drag and drop
