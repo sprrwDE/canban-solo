@@ -120,7 +120,6 @@ async function setDatabase() {
     setFilters();
 }
 
-
 ////////////////////////////////
 // Filter Logic
 
@@ -143,6 +142,9 @@ function renderFilteredDatabaseObjects(urgent, medium, low) {
     renderLow(low);
 }
 
+/**
+ * Renders Urgent Tasks
+ */
 function renderUrgent(urgent) {
     for (let index = 0; index < urgent.length; index++) {
         urgentRef.innerHTML += taskTemplate(index, urgent);
@@ -150,6 +152,9 @@ function renderUrgent(urgent) {
     }
 }
 
+/**
+ * Renders Medium Tasks
+ */
 function renderMedium(medium) {
     for (let index = 0; index < medium.length; index++) {
         mediumRef.innerHTML += taskTemplate(index, medium);
@@ -157,6 +162,9 @@ function renderMedium(medium) {
     }
 }
 
+/**
+ * Renders Low Tasks
+ */
 function renderLow(low) {
     for (let index = 0; index < low.length; index++) {
         lowRef.innerHTML += taskTemplate(index, low);
@@ -225,3 +233,4 @@ function addSubtaskCard() {
     // push
     // render
 }
+

@@ -7,7 +7,7 @@ async function getDataFromFirebase(path = "") {
 }
 
 /**
- * Push Input Values To Firebase Realtime DB
+ * Pushes Form Input Data To Firebase Realtime DB
  */
 async function pushDataToFirebase(path = "", input) {
     try {
@@ -27,6 +27,9 @@ async function pushDataToFirebase(path = "", input) {
     }
 }
 
+/**
+ * Pushes Edited Data to Firebase
+ */
 async function pushEditDataToFirebase(path = "", id = "", input) {
     try {
         await fetch(baseURL + path + id + '.json', {

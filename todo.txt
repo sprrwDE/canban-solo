@@ -1,7 +1,6 @@
 // Board:
     // subtasks hinzufügen? 
         // Mit Edit Form editierbar machen (put fetch id + sub als url parameter?)
-        // mit X Löschbar machen (delete fetch id + sub als url parameter?)
         // objekt (gleich als liste rendern? Objekt dann mit pushen)
         // object values 
         // Wie array in objekt umwandeln? reduce? als parameter leeres objekt, syntax ergooglen mit accumulator {}

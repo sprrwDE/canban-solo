@@ -9,7 +9,9 @@ function assignToContact(i) {
     </div>`;
 }
 
-
+/**
+ * Renders Subtasks in Task Form
+ */
 function subTaskTemplate(i) {
     return `
     <li>${subtasks[i]} | <span class="pointer" onclick="deleteSubtask(${[i]})">x</span></li>`
