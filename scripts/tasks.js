@@ -223,14 +223,26 @@ function getCurrentSubtaskObject(currentSubtasks) {
 /**
  *  Ads Subtask in Card Template
  */
-function addSubtaskCard() {
+function addSubtaskCard(taskId) {
+    let subtaskInput = document.getElementById(`sub-${taskId}`)
+    const currentTaskObject = database.find(task => task.objectId === taskId);
+    let sub = currentTaskObject.data.subtask;
 
-    console.log(currentCardId)
-    console.log(subtasks);
-    // sub.push input value
-    // sub.reduce({} {}) oder so
-    // input value bestimmen, find-currentCardId?
-    // push
-    // render
+    let subArray
+    if (sub) {
+        subArray = Object.values(sub) || [];
+    } else { subArray = [] }
+    subArray.push(subtaskInput.value);
+
+    const input = {
+        headline: currentTaskObject.data.headline,
+        text: currentTaskObject.data.text,
+        status: currentTaskObject.data.status,
+        assigned: currentTaskObject.data.assigned,
+        subtask: subArray
+    }
+
+    pushEditDataToFirebase('tasks/', taskId, input);
+    renderSubtaskCard(currentTaskObject);
 }
 
