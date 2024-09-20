@@ -144,21 +144,21 @@ function renderFilteredDatabaseObjects(urgent, medium, low) {
 
 function renderUrgent(urgent) {
     for (let index = 0; index < urgent.length; index++) {
-        urgentRef.innerHTML += urgentCardTemplate(index);
+        urgentRef.innerHTML += taskTemplate(index, urgent);
         renderSubtaskCard(index, urgent);
     }
 }
 
 function renderMedium(medium) {
     for (let index = 0; index < medium.length; index++) {
-        mediumRef.innerHTML += mediumCardTemplate(index);
+        mediumRef.innerHTML += taskTemplate(index, medium);
         renderSubtaskCard(index, medium);
     }
 }
 
 function renderLow(low) {
     for (let index = 0; index < low.length; index++) {
-        lowRef.innerHTML += lowCardTemplate(index);
+        lowRef.innerHTML += taskTemplate(index, low);
         renderSubtaskCard(index, low);
     }
 }
@@ -176,3 +176,7 @@ function renderSubtaskCard(i, prio) {
         subtaskCardRef.innerHTML += subtaskCardTemplate(sub, n);
     }
 }
+
+//// Subtask editieren, in Firebase pushen, Rendern
+    // wieder in objekt umwandeln, werte übergeben
+//// Subtask entfernen

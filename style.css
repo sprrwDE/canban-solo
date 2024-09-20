@@ -88,7 +88,6 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 8px;
     background-color: aliceblue;
     display: flex;
-    align-items: center;
     flex-direction: row;
     border-radius: 16px;
     width: 100%;
@@ -99,7 +98,6 @@ h1, h2, h3, h4, h5, h6 {
     margin: 8px;
     background-color: lavender;
     display: flex;
-    align-items: center;
     flex-direction: row;
     border-radius: 16px;
     justify-content: space-between;
@@ -160,6 +158,13 @@ button {
 }
 
 .sub-form {
+    padding: 8px 24px;
+    background-color: aliceblue;
+    border-radius: 16px;
+    margin: 8px 0;
+}
+
+.render-subtask {
     padding: 8px 24px;
     background-color: aliceblue;
     border-radius: 16px;
