@@ -116,7 +116,6 @@ async function setDatabase() {
             data: data[dataIds[index]]
         })
     };
-    console.log("Ganze Datenbank:", database);
     setFilters();
 }
 
@@ -163,20 +162,19 @@ function renderLow(low) {
     }
 }
 
+/// Hier For Each und in einer Funktion?
+
+let currentCardId;
+
 /**
  *  Renders Subtask into Card Template
  */
 function renderSubtaskCard(i, prio) {
-    console.log("Urgent Liste", prio)
-    const sub = Object.values(prio[i].data.subtask)
-    console.log(sub)
+    subtasks = Object.values(prio[i].data.subtask)
     let subtaskCardRef = document.getElementById(`card-${prio[i].objectId}`)
     subtaskCardRef.innerHTML = ''; 
-    for (let n = 0; n < sub.length; n++) { 
-        subtaskCardRef.innerHTML += subtaskCardTemplate(sub, n);
+    for (let n = 0; n < subtasks.length; n++) { 
+        currentCardId = prio[i].objectId;
+        subtaskCardRef.innerHTML += subtaskCardTemplate(subtasks, n);
     }
 }
-
-//// Subtask editieren, in Firebase pushen, Rendern
-    // wieder in objekt umwandeln, werte übergeben
-//// Subtask entfernen

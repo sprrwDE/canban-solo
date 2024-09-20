@@ -32,4 +32,5 @@
 
 ->> Allgemein Array Methoden vertiefen (reduce, sort, map, filter, object.entries?)
 ->> Arrow Functions vertiefen
+->> For Each Schleifen verwenden
 ->> weiter stylen wenn bock
