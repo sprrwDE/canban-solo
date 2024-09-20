@@ -66,6 +66,7 @@ function getInputData(event) {
         subtask: subtaskObject
     }
     pushDataToFirebase('tasks', input);
+    subtasks = [];
     resetInputFields();
 }
 
@@ -114,10 +115,11 @@ async function setDatabase() {
         database.push({
             objectId: dataIds[index],
             data: data[dataIds[index]]
-        })
-    };
+        });
+    }
     setFilters();
 }
+
 
 ////////////////////////////////
 // Filter Logic
@@ -144,37 +146,82 @@ function renderFilteredDatabaseObjects(urgent, medium, low) {
 function renderUrgent(urgent) {
     for (let index = 0; index < urgent.length; index++) {
         urgentRef.innerHTML += taskTemplate(index, urgent);
-        renderSubtaskCard(index, urgent);
+        renderSubtaskCard(urgent[index]);
     }
 }
 
 function renderMedium(medium) {
     for (let index = 0; index < medium.length; index++) {
         mediumRef.innerHTML += taskTemplate(index, medium);
-        renderSubtaskCard(index, medium);
+        renderSubtaskCard(medium[index]);
     }
 }
 
 function renderLow(low) {
     for (let index = 0; index < low.length; index++) {
         lowRef.innerHTML += taskTemplate(index, low);
-        renderSubtaskCard(index, low);
+        renderSubtaskCard(low[index]);
     }
 }
 
 /// Hier For Each und in einer Funktion?
 
 let currentCardId;
+let currentCardIndex;
 
 /**
  *  Renders Subtask into Card Template
  */
-function renderSubtaskCard(i, prio) {
-    subtasks = Object.values(prio[i].data.subtask)
-    let subtaskCardRef = document.getElementById(`card-${prio[i].objectId}`)
-    subtaskCardRef.innerHTML = ''; 
-    for (let n = 0; n < subtasks.length; n++) { 
-        currentCardId = prio[i].objectId;
-        subtaskCardRef.innerHTML += subtaskCardTemplate(subtasks, n);
+function renderSubtaskCard(task) {
+    const subtasks = Object.values(task.data.subtask || {});
+    let subtaskCardRef = document.getElementById(`card-${task.objectId}`);
+    subtaskCardRef.innerHTML = '';
+    for (let n = 0; n < subtasks.length; n++) {
+        subtaskCardRef.innerHTML += subtaskCardTemplate(task.objectId, subtasks, n);
     }
+}
+
+/**
+ *  Deletes Subtask out of Card Template
+ */
+function deleteSubtaskCard(taskId, n) {
+    const currentTaskObject = database.find(task => task.objectId === taskId);
+    let currentSubtasks = Object.values(currentTaskObject.data.subtask || {});
+    currentSubtasks.splice(n, 1);
+    const subtaskObj = getCurrentSubtaskObject(currentSubtasks)
+    const input = {
+        headline: currentTaskObject.data.headline,
+        text: currentTaskObject.data.text,
+        status: currentTaskObject.data.status,
+        assigned: currentTaskObject.data.assigned,
+        subtask: subtaskObj
+    };
+    pushEditDataToFirebase('tasks/', taskId, input);
+    renderSubtaskCard(currentTaskObject);
+}
+
+/**
+ *  Reduces current Subtask into Object
+ */
+function getCurrentSubtaskObject(currentSubtasks) {
+    console.log(currentSubtasks);
+    const subtaskObject = currentSubtasks.reduce((result, subtask, index) => {
+        result[index] = subtask;
+        return result;
+    }, {})
+    return subtaskObject;
+}
+
+/**
+ *  Ads Subtask in Card Template
+ */
+function addSubtaskCard() {
+
+    console.log(currentCardId)
+    console.log(subtasks);
+    // sub.push input value
+    // sub.reduce({} {}) oder so
+    // input value bestimmen, find-currentCardId?
+    // push
+    // render
 }

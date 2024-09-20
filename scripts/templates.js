@@ -50,55 +50,19 @@ function taskTemplate(i, prio) {
             <ul class="render-subtask" id="card-${prio[i].objectId}"></ul>
             <div class="subtask-input">
                 <input type="text" id="sub-${prio[i].objectId}" placeholder="subtask">
-                <button class="margin-low" type="submit" onclick="addSubtaskCard()">add subtask</button>
+                <button class="margin-low" type="submit" onclick="addSubtaskCard('${prio[i].objectId}')">add subtask</button>
             </div>
 
         </div>
         <div class="close" onclick="deleteCard('tasks/', '${prio[i].objectId}')">X</div>
-    </div>`
+    </div>`;
 }
 
 /**
  *  Subtask Card Template String
  */
-function subtaskCardTemplate(sub, n) {
+function subtaskCardTemplate(taskId, sub, n) {
     return `
-    <li>${sub[n]} | <span class="pointer" onclick="deleteSubtaskCard('${n}')">x</span></li></li>
-    `
+    <li>${sub[n]} | <span class="pointer" onclick="deleteSubtaskCard('${taskId}', ${n})">x</span></li>
+    `;
 }
-
-function deleteSubtaskCard(n) {
-    subtasks.splice(n, 1)
-    let sub = getSubtaskObject()
-    const currentTaskObject = database.find((task) => task.objectId === currentCardId)
-    input = {
-        headline: currentTaskObject.data.headline,
-        text: currentTaskObject.data.text,
-        status: currentTaskObject.data.status,
-        assigned: currentTaskObject.data.assigned,
-        subtask: sub
-    }
-    pushEditDataToFirebase('tasks/', currentCardId , input);
-
-    console.log("new input", input)
-    console.log("current task object", currentTaskObject)
-    console.log("new subtask object", sub)
-    console.log("current card id", currentCardId)
-    console.log("current index", n)
-    console.log("current subtask array", sub);
-}
-
-function addSubtaskCard() {
-    console.log(currentCardId)
-    console.log(subtasks);
-    // sub.push input value
-    // sub.reduce({} {}) oder so
-    // input value bestimmen, find-currentCardId?
-    // push
-    // render
-}
-
-
-//// Subtask editieren, in Firebase pushen, Rendern
-    // wieder in objekt umwandeln, werte übergeben
-//// Subtask entfernen
