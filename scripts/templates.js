@@ -36,9 +36,19 @@ function contactTemplate(i) {
 }
 
 /**
+ *  Subtask Card Template String
+ */
+function subtaskCardTemplate(sub, n) {
+    return `
+    <li>${sub[n]}</li>
+    `
+}
+
+/**
  * Urgent Template String
  */
 function urgentCardTemplate(i) {
+    console.log("Momentane Urgent Karte", urgent[i])
     return `
     <div class="boardcard" draggable="true" ondragstart="startDragging('${urgent[i].objectId}')">
         <div class="content board">
@@ -47,7 +57,7 @@ function urgentCardTemplate(i) {
             <p>status: ${urgent[i].data.status}</p>
             <p>assigned to: ${urgent[i].data.assigned}</p>
 
-            <div class="render-subtask" id="card-${urgent[i].objectId}></div>
+            <ul class="render-subtask" id="card-${urgent[i].objectId}"></ul>
             <div class="subtask-input">
                 <input type="text" id="sub-${urgent[i].objectId}" placeholder="subtask">
                 <button class="margin-low" type="submit" onclick="">add subtask</button>
@@ -70,9 +80,9 @@ function mediumCardTemplate(i) {
             <p>status: ${medium[i].data.status}</p>
             <p>assigned to: ${medium[i].data.assigned}</p>
 
-            <div class="render-subtask" id="sub-${medium[i].objectId}></div>
+            <div class="render-subtask" id="card-${medium[i].objectId}"></div>
             <div class="subtask-input">
-                <input type="text" id="name-${medium[i].objectId}" placeholder="subtask">
+                <input type="text" id="sub-${medium[i].objectId}" placeholder="subtask">
                 <button class="margin-low" type="submit" onclick="">add subtask</button>
             </div>
 
@@ -93,7 +103,7 @@ function lowCardTemplate(i) {
             <p>status: ${low[i].data.status}</p>
             <p>assigned to: ${low[i].data.assigned}</p>
 
-            <div class="render-subtask" id="card-${low[i].objectId}></div>
+            <div class="render-subtask" id="card-${low[i].objectId}"></div>
             <div class="subtask-input">
                 <input type="text" id="sub-${low[i].objectId}" placeholder="subtask">
                 <button class="margin-low" type="submit" onclick="">add subtask</button>

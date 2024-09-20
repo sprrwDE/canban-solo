@@ -116,6 +116,7 @@ async function setDatabase() {
             data: data[dataIds[index]]
         })
     };
+    console.log("Ganze Datenbank:", database);
     setFilters();
 }
 
@@ -144,17 +145,34 @@ function renderFilteredDatabaseObjects(urgent, medium, low) {
 function renderUrgent(urgent) {
     for (let index = 0; index < urgent.length; index++) {
         urgentRef.innerHTML += urgentCardTemplate(index);
+        renderSubtaskCard(index, urgent);
     }
 }
 
 function renderMedium(medium) {
     for (let index = 0; index < medium.length; index++) {
         mediumRef.innerHTML += mediumCardTemplate(index);
+        renderSubtaskCard(index, medium);
     }
 }
 
 function renderLow(low) {
     for (let index = 0; index < low.length; index++) {
         lowRef.innerHTML += lowCardTemplate(index);
+        renderSubtaskCard(index, low);
+    }
+}
+
+/**
+ *  Renders Subtask into Card Template
+ */
+function renderSubtaskCard(i, prio) {
+    console.log("Urgent Liste", prio)
+    const sub = Object.values(prio[i].data.subtask)
+    console.log(sub)
+    let subtaskCardRef = document.getElementById(`card-${prio[i].objectId}`)
+    subtaskCardRef.innerHTML = ''; 
+    for (let n = 0; n < sub.length; n++) { 
+        subtaskCardRef.innerHTML += subtaskCardTemplate(sub, n);
     }
 }

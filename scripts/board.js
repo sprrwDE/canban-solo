@@ -14,7 +14,8 @@ function moveTo(status) {
         headline: task.data.headline,
         text: task.data.text,
         status: status,
-        assigned: task.data.assigned
+        assigned: task.data.assigned,
+        subtask: task.data.subtask
     }
     pushEditDataToFirebase(path = "tasks/", currentTaskId, input)
 }
