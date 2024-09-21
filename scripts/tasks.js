@@ -160,6 +160,7 @@ function renderFilteredDatabaseObjects(urgent, medium, low) {
  * Renders Urgent Tasks
  */
 function renderUrgent(urgent) {
+    urgentRef.innerHTML = '';
     for (let index = 0; index < urgent.length; index++) {
         urgentRef.innerHTML += taskTemplate(index, urgent);
         renderSubtaskCard(urgent[index]);
@@ -171,6 +172,7 @@ function renderUrgent(urgent) {
  * Renders Medium Tasks
  */
 function renderMedium(medium) {
+    mediumRef.innerHTML = '';
     for (let index = 0; index < medium.length; index++) {
         mediumRef.innerHTML += taskTemplate(index, medium);
         renderSubtaskCard(medium[index]);
@@ -182,6 +184,7 @@ function renderMedium(medium) {
  * Renders Low Tasks
  */
 function renderLow(low) {
+    lowRef.innerHTML = '';
     for (let index = 0; index < low.length; index++) {
         lowRef.innerHTML += taskTemplate(index, low);
         renderSubtaskCard(low[index]);
