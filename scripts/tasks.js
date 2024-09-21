@@ -56,18 +56,32 @@ function getSubtaskObject() {
 function getInputData(event) {
     event.preventDefault()
     let status = document.getElementById('status');
-    let assignedTo = document.querySelector('input[name="assign-contact"]:checked');
+
+
     const subtaskObject = getSubtaskObject();
     input = {
         headline: headlineRef.value,
         text: textRef.value,
         status: status.value,
-        assigned: assignedTo.value,
+        assigned: assignTo(),
         subtask: subtaskObject
     }
     pushDataToFirebase('tasks', input);
     subtasks = [];
     resetInputFields();
+}
+
+function assignTo() {
+    let assignRef = document.getElementById('assign');
+    let assignValues = assignRef.getElementsByTagName("INPUT")
+    let assignedTo = [];
+    for (let i = 0; i < assignValues.length; i++) {
+        if (assignValues[i].checked) {
+            assignedTo.push(assignValues[i].value);
+        }
+    }
+    console.log("assigned to array:", assignedTo)
+    return assignedTo;
 }
 
 /**

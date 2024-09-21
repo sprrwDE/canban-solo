@@ -4,7 +4,7 @@
 function assignToContact(i) {
     return `
     <div onclick="setCurrentIndex(${i})">
-        <input type="radio" id="assign-${i}" name="assign-contact" value="${contactDb[i].data.name}">
+        <input type="checkbox" id="assign-${i}" name="assign-contact" value="${contactDb[i].data.name}">
         <label for="assign-${contactDb[i].objectId}">${contactDb[i].data.name}</label>
     </div>`;
 }

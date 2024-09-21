@@ -87,12 +87,20 @@ async function setContactDatabase() {
     renderContactDatabaseObjects()
 }
 
+let currentContact;
+
 /**
  * Renders Database in DOM
  */
 function renderContactDatabaseObjects() {
     for (let index = 0; index < contactDb.length; index++) {
+        currentContact = contactDb[index].objectId;
         contactDiv.innerHTML += contactTemplate(index);
         fieldset.innerHTML += assignToContact(index);
+        console.log("Current Contact", currentContact);
     }
 }
+
+// Wenn Kontakt gelöscht wird muss dieser auch bei assigned verschwinden
+    // find === contact.name
+    // etc

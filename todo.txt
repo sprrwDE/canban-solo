@@ -1,10 +1,3 @@
-// Board:
-    // subtasks hinzufügen? 
-        // Mit Edit Form editierbar machen (put fetch id + sub als url parameter?)
-        // objekt (gleich als liste rendern? Objekt dann mit pushen)
-        // object values 
-        // Wie array in objekt umwandeln? reduce? als parameter leeres objekt, syntax ergooglen mit accumulator {}
-
 // Contacts
     // Initialen bestimmen 
     // Render nach Initialen
@@ -15,13 +8,25 @@
         // initial =  contact .charAt(0).toUpperCase()
         // viel ausloggen
 
+    // Wenn Kontakt gelöscht wird muss dieser auch im task bei assigned verschwinden
+        // selbe gilt für edit
+        // find === contact.name
+        // etc
+        // beim anlegen array
+            // wie in array pushen? for loop?
+
+// board:
+    // buttons neben den überschriften (low, medium, urgent etc) um neuen task anzlegen?
+    // muss man mit popup machen :S also vielleicht eher nicht
+    // oder so ein formular iwo versteckeln
+
 // forms:
     // form validation hinzufügen?
     // mehrere assignedTo ermöglichen durch mehrfachauswahl
         // array in object struktur? querySelector.all?
 
 // global:
-    // rnd farben
+    // rnd farben an kontakte übergeben
 
 // Login:
     // bauen mit if pw === x / else?
