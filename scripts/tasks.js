@@ -123,6 +123,10 @@ async function inititializeBoard() {
  */
 async function setDatabase() {
     let data = await getDataFromFirebase('/tasks');
+        if (!data) {
+        console.warn('Derzeit keine Tasks in Firebase Brudi');
+        data = {}; 
+    } 
     let dataIds = Object.keys(data);
     database = [];
     for (let index = 0; index < dataIds.length; index++) {

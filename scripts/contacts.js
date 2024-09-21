@@ -76,6 +76,10 @@ async function initializeContacts() {
  */
 async function setContactDatabase() {
     let contactData = await getDataFromFirebase('/contacts');
+    if (!contactData) {
+        console.warn('Gibt keine Kontakte Bro');
+        contactData = {};
+    }
     let contactDataIds = Object.keys(contactData);
     contactDb = [];
     for (let index = 0; index < contactDataIds.length; index++) {
@@ -106,10 +110,10 @@ function renderContactDatabaseObjects() {
  * Defines initials of current name
  */
 function getInitials(i) {
-        let nameArray = contactDb[i].data.name.split(" ");
-        let first = nameArray[0].charAt(0).toUpperCase();
-        let last = nameArray[nameArray.length - 1].charAt(0).toUpperCase();
-        return first, last
+    let nameArray = contactDb[i].data.name.split(" ");
+    let first = nameArray[0].charAt(0).toUpperCase();
+    let last = nameArray[nameArray.length - 1].charAt(0).toUpperCase();
+    return first, last
 }
 
 /**
