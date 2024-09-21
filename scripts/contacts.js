@@ -135,7 +135,7 @@ function deleteAssignCard(currentTaskObject, newAssign) {
         assigned: newAssign,
         subtask: currentTaskObject.data.subtask
     };
-    pushEditDataToFirebase('tasks/', taskId, input);
+    pushEditDataToFirebase('tasks/', taskId, input, false);
     renderSubtaskCard(currentTaskObject);
 }
 

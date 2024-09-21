@@ -6,5 +6,4 @@ const baseURL = 'https://solo-join-default-rtdb.europe-west1.firebasedatabase.ap
 async function init() {
     initializeContacts();
     inititializeBoard();
-    test();
 }

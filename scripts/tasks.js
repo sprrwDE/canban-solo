@@ -273,4 +273,3 @@ function addSubtaskCard(taskId) {
     pushEditDataToFirebase('tasks/', taskId, input);
     renderSubtaskCard(currentTaskObject);
 }
-

@@ -52,7 +52,7 @@ async function pushEditDataToFirebase(path = "", id = "", input) {
 /**
  * Deletes Card at Path and ID (works for both tasks and contacts)
  */
-async function deleteCard(path = "", id = "") {
+async function deleteCard(path = "", id = "", shouldInitialize = true) {
     try {
         await fetch(baseURL + path + id + '.json', {
             method: "DELETE"
@@ -61,7 +61,9 @@ async function deleteCard(path = "", id = "") {
     catch (error) {
         console.log('Error Brudi');
     } finally {
-        await initializeContacts();
-        await inititializeBoard();
+        if (shouldInitialize) {
+            await initializeContacts();
+            await inititializeBoard();
+        }
     }
 }
