@@ -19,7 +19,7 @@ let contactDb = [];
  */
 function getContactInputData(event) {
     event.preventDefault()
-    let name = nameInputRef.value;
+    let name = nameInputRef.value.trim();
     let email = emailInputRef.value
     input = {
         name: name,
@@ -36,7 +36,7 @@ function getEditContactData(event, id) {
     event.preventDefault()
     editNameInputRef = document.getElementById(`name-${id}`);
     editEmailInputRef = document.getElementById(`email-${id}`);
-    let newName = editNameInputRef.value;
+    let newName = editNameInputRef.value.trim();
     let newEmail = editEmailInputRef.value;
     input = {
         name: newName,
@@ -93,27 +93,34 @@ let currentContact;
  * Renders Database in DOM
  */
 function renderContactDatabaseObjects() {
+    console.log("Kontakte:", contactDb);
     for (let index = 0; index < contactDb.length; index++) {
+        getInitials(index);
         currentContact = contactDb[index].objectId;
         contactDiv.innerHTML += contactTemplate(index);
         fieldset.innerHTML += assignToContact(index);
     }
 }
 
-// Wenn Kontakt gelöscht wird muss dieser auch bei assigned verschwinden
-// selbe bei edit
-// find === contact.name
-// etc
+/**
+ * Defines initials of current name
+ */
+function getInitials(i) {
+        let nameArray = contactDb[i].data.name.split(" ");
+        let first = nameArray[0].charAt(0).toUpperCase();
+        let last = nameArray[nameArray.length - 1].charAt(0).toUpperCase();
+        return first, last
+}
 
 /**
  * Deletes Assigned Contact out of Task
  */
 function deleteAssigned(askedname) {
     const assignedObjects = findAllAssigned(askedname);
-    for (let i = 0; i < assignedObjects.length; i ++) {
+    for (let i = 0; i < assignedObjects.length; i++) {
         const array = assignedObjects[i].data.assigned
         const index = array.indexOf(askedname);
-        array.splice(index, 1); 
+        array.splice(index, 1);
 
         const newAssign = array.reduce((obj, name, index) => {
             obj[index] = name;
@@ -121,6 +128,18 @@ function deleteAssigned(askedname) {
         }, {});
         deleteAssignCard(assignedObjects[i], newAssign)
     }
+}
+/**
+ * Loops to all Tasks which contain assigned name and saves in array
+ */
+function findAllAssigned(name) {
+    let results = [];
+    for (let i = 0; i < database.length; i++) {
+        if (database[i].data.assigned.includes(name)) {
+            results.push(database[i]);
+        }
+    }
+    return results;
 }
 
 /**
@@ -139,15 +158,5 @@ function deleteAssignCard(currentTaskObject, newAssign) {
     renderSubtaskCard(currentTaskObject);
 }
 
-/**
- * Loops to all Tasks which contain assigned name and saves in array
- */
-function findAllAssigned(name) {
-    let results = []; 
-    for (let i = 0; i < database.length; i++) {
-        if (database[i].data.assigned.includes(name)) {
-            results.push(database[i]); 
-        }
-    }
-    return results;
-}
+// Wenn Kontakt editiert wird muss dieser auch bei assigned editiert werden
+// siehe oben nur anderer promis

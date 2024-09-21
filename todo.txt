@@ -1,40 +1,31 @@
 // Contacts
-    // Initialen bestimmen 
     // Render nach Initialen
         // mit contactDb arbeiten 
         // reduce scheint der way to go? als parameter leeres objekt, syntax ergooglen mit accumulator {}
-        // neues objekt "sortedContacts" 
-        // 2 For schleifen 
-        // initial =  contact .charAt(0).toUpperCase()
-        // viel ausloggen
-
-    // Wenn Kontakt gelöscht wird muss dieser auch im task bei assigned verschwinden
-        // selbe gilt für edit
-        // find assignedto.includes === contact.name
-        // etc
-        // 
-
-// board:
-    // buttons neben den überschriften (low, medium, urgent etc) um neuen task anzlegen?
-        // muss man mit popup machen :S also vielleicht eher nicht
-        // oder so ein formular iwo versteckeln
-    // assigned im board löschbar machen ohne dass kontakt gelöscht wird
-
-// forms:
-    // form validation hinzufügen?
-    // mehrere assignedTo ermöglichen durch mehrfachauswahl
-        // array in object struktur? querySelector.all?
-
-// global:
-    // rnd farben an kontakte übergeben
+        // dadurch neues objekt "sortedContacts" oder so erzeugen?
+            // prüfen ob initiale schon besteht, falls ja verwenden falls nein leeres array erstellen
+        // 2 For schleifen zum rendern
 
 // Login:
     // bauen mit if pw === x / else?
 
-// Update und Performance:
-    // Funktion um nur die jeweilige Karte zu Updaten nach edit (find / findindex oder so?)
+// forms:
+    // form validation hinzufügen?
+
+/// BONUS WENN ZEIT
+    // global:
+        // rnd farben an kontakte übergeben
+    // Update und Performance:
+        // Funktion um nur die jeweilige Karte zu Updaten nach edit (find / findindex oder so?)
+    // board:
+        // buttons neben den überschriften (low, medium, urgent etc) um neuen task anzlegen?
+            // muss man mit popup machen :S also vielleicht eher nicht
+            // oder so ein formular iwo versteckeln
+        // assigned im board löschbar machen ohne dass kontakt gelöscht wird
+        // Wenn Kontakt editiert wird muss dieser auch im task bei assigned editiert werden
 
 ->> Allgemein Array Methoden vertiefen (reduce, sort, map, filter, object.entries?)
+->> Rausfinden was man mit strings alles anstellen kann LOL 
 ->> Arrow Functions vertiefen
-->> For Each Schleifen verwenden
-->> weiter stylen wenn bock
+->> For Each Schleifen verwenden?
+->> weiter stylen wenn bock, eher kein Bock
