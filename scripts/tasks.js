@@ -134,7 +134,7 @@ async function setDatabase() {
     setFilters();
 }
 
-////////////////////////////////
+//////////////////////////////// Eventuell in Board?
 // Filter Logic
 
 /**
@@ -163,6 +163,7 @@ function renderUrgent(urgent) {
     for (let index = 0; index < urgent.length; index++) {
         urgentRef.innerHTML += taskTemplate(index, urgent);
         renderSubtaskCard(urgent[index]);
+        renderAssigned(urgent[index]);
     }
 }
 
@@ -173,6 +174,7 @@ function renderMedium(medium) {
     for (let index = 0; index < medium.length; index++) {
         mediumRef.innerHTML += taskTemplate(index, medium);
         renderSubtaskCard(medium[index]);
+        renderAssigned(medium[index]);
     }
 }
 
@@ -237,13 +239,14 @@ function deleteSubtaskCard(taskId, n) {
  *  Reduces current Subtask into Object
  */
 function getCurrentSubtaskObject(currentSubtasks) {
-    console.log(currentSubtasks);
     const subtaskObject = currentSubtasks.reduce((result, subtask, index) => {
         result[index] = subtask;
         return result;
     }, {})
     return subtaskObject;
 }
+
+// Ende
 
 /**
  *  Ads Subtask in Card Template

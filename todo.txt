@@ -10,15 +10,15 @@
 
     // Wenn Kontakt gelöscht wird muss dieser auch im task bei assigned verschwinden
         // selbe gilt für edit
-        // find === contact.name
+        // find assignedto.includes === contact.name
         // etc
-        // beim anlegen array
-            // wie in array pushen? for loop?
+        // 
 
 // board:
     // buttons neben den überschriften (low, medium, urgent etc) um neuen task anzlegen?
-    // muss man mit popup machen :S also vielleicht eher nicht
-    // oder so ein formular iwo versteckeln
+        // muss man mit popup machen :S also vielleicht eher nicht
+        // oder so ein formular iwo versteckeln
+    // assigned im board löschbar machen ohne dass kontakt gelöscht wird
 
 // forms:
     // form validation hinzufügen?

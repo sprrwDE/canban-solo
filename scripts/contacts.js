@@ -97,10 +97,36 @@ function renderContactDatabaseObjects() {
         currentContact = contactDb[index].objectId;
         contactDiv.innerHTML += contactTemplate(index);
         fieldset.innerHTML += assignToContact(index);
-        console.log("Current Contact", currentContact);
     }
 }
 
 // Wenn Kontakt gelöscht wird muss dieser auch bei assigned verschwinden
-    // find === contact.name
-    // etc
+// selbe bei edit
+// find === contact.name
+// etc
+
+/**
+ * Deletes Assigned Contact out of Task
+ */
+function deleteAssigned(askedname) {
+    const foundEntries = findAllAssigned(askedname);
+    
+    console.log("///////////////")
+    console.log("name:", askedname);
+    console.log("contactDB:", contactDb);
+    console.log("database:", database);
+    console.log("assignedObjects:", foundEntries);
+}
+
+/**
+ * Loops to all Tasks which contain assigned name and saves in array
+ */
+function findAllAssigned(name) {
+    let results = []; 
+    for (let i = 0; i < database.length; i++) {
+        if (database[i].data.assigned.includes(name)) {
+            results.push(database[i]); 
+        }
+    }
+    return results;
+}
