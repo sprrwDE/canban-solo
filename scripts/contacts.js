@@ -109,13 +109,34 @@ function renderContactDatabaseObjects() {
  * Deletes Assigned Contact out of Task
  */
 function deleteAssigned(askedname) {
-    const foundEntries = findAllAssigned(askedname);
-    
-    console.log("///////////////")
-    console.log("name:", askedname);
-    console.log("contactDB:", contactDb);
-    console.log("database:", database);
-    console.log("assignedObjects:", foundEntries);
+    const assignedObjects = findAllAssigned(askedname);
+    for (let i = 0; i < assignedObjects.length; i ++) {
+        const array = assignedObjects[i].data.assigned
+        const index = array.indexOf(askedname);
+        array.splice(index, 1); 
+
+        const newAssign = array.reduce((obj, name, index) => {
+            obj[index] = name;
+            return obj;
+        }, {});
+        deleteAssignCard(assignedObjects[i], newAssign)
+    }
+}
+
+/**
+ *  Deletes Subtask out of Card Template
+ */
+function deleteAssignCard(currentTaskObject, newAssign) {
+    let taskId = currentTaskObject.objectId
+    const input = {
+        headline: currentTaskObject.data.headline,
+        text: currentTaskObject.data.text,
+        status: currentTaskObject.data.status,
+        assigned: newAssign,
+        subtask: currentTaskObject.data.subtask
+    };
+    pushEditDataToFirebase('tasks/', taskId, input);
+    renderSubtaskCard(currentTaskObject);
 }
 
 /**

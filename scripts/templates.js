@@ -33,11 +33,11 @@ function contactTemplate(i) {
                 <button class="margin-low" type="submit" onclick="getEditContactData(event, '${contactDb[i].objectId}')">submit</button>
             </form>
         </div>
-        <div class="close" onclick="deleteAssigned('${contactDb[i].data.name}')">X</div>
+        <div class="close" onclick="deleteCard('contacts/', '${contactDb[i].objectId}'), deleteAssigned('${contactDb[i].data.name}')">X</div>
     </div>`
 }
 
-// deleteCard('contacts/', '${contactDb[i].objectId}'),
+// 
 
 /**
  * Task Template String
