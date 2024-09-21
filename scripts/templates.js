@@ -3,7 +3,7 @@
  */
 function assignToContact(i) {
     return `
-    <div onclick="setCurrentIndex(${i})">
+    <div>
         <input type="checkbox" id="assign-${i}" name="assign-contact" value="${contactDb[i].data.name}">
         <label for="assign-${contactDb[i].objectId}">${contactDb[i].data.name}</label>
     </div>`;
@@ -47,7 +47,8 @@ function taskTemplate(i, prio) {
             <p>${prio[i].data.headline}</p>
             <p>${prio[i].data.text}</p>
             <p>status: ${prio[i].data.status}</p>
-            <p>assigned to: ${prio[i].data.assigned}</p>
+            <p>assigned to:</p>
+            <div id="assigned-to-${prio[i].objectId}"></div>
 
             <ul class="render-subtask" id="card-${prio[i].objectId}"></ul>
             <div class="subtask-input">
@@ -67,4 +68,13 @@ function subtaskCardTemplate(taskId, sub, n) {
     return `
     <li>${sub[n]} | <span class="pointer" onclick="deleteSubtaskCard('${taskId}', ${n})">x</span></li>
     `;
+}
+
+/**
+ *  Assigned To Card Template String
+ */
+function assignedCardTemplate(assignedContact) {
+    return `
+    <li>${assignedContact}</li>
+    `
 }

@@ -10,6 +10,7 @@ async function getDataFromFirebase(path = "") {
  * Pushes Form Input Data To Firebase Realtime DB
  */
 async function pushDataToFirebase(path = "", input) {
+    console.log(input);
     try {
         await fetch(baseURL + path + '.json', {
             method: "POST",

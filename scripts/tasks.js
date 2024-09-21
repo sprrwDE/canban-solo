@@ -56,8 +56,6 @@ function getSubtaskObject() {
 function getInputData(event) {
     event.preventDefault()
     let status = document.getElementById('status');
-
-
     const subtaskObject = getSubtaskObject();
     input = {
         headline: headlineRef.value,
@@ -71,6 +69,9 @@ function getInputData(event) {
     resetInputFields();
 }
 
+/**
+ *  Gets Checkbox Values and pushes into Array
+ */
 function assignTo() {
     let assignRef = document.getElementById('assign');
     let assignValues = assignRef.getElementsByTagName("INPUT")
@@ -80,7 +81,6 @@ function assignTo() {
             assignedTo.push(assignValues[i].value);
         }
     }
-    console.log("assigned to array:", assignedTo)
     return assignedTo;
 }
 
@@ -183,13 +183,24 @@ function renderLow(low) {
     for (let index = 0; index < low.length; index++) {
         lowRef.innerHTML += taskTemplate(index, low);
         renderSubtaskCard(low[index]);
+        renderAssigned(low[index]);
+    }
+}
+
+/**
+ * Renders Assigned To List in Contact Card
+ */
+function renderAssigned(task) {
+    let assignedCardRef = document.getElementById(`assigned-to-${task.objectId}`);
+    assignedCardRef.innerHTML = '';
+    let assignedList = Object.values(task.data.assigned || {});
+    for (let i=0; i < assignedList.length; i++) {
+        let assignedContact = assignedList[i];
+        assignedCardRef.innerHTML += assignedCardTemplate(assignedContact)
     }
 }
 
 /// Hier For Each und in einer Funktion?
-
-let currentCardId;
-let currentCardIndex;
 
 /**
  *  Renders Subtask into Card Template
