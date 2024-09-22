@@ -22,7 +22,7 @@ function subTaskTemplate(i) {
  */
 function contactTemplate(i) {
     return `
-    <div class="card" id="card-${contactDb[i].objectId}">
+    <div class="card" id="card-${contactDb[i].objectId}" style="background-color: ${contactDb[i].data.color}">
         <div class="content contact">
             <p>name: ${contactDb[i].data.name}</p>
             <p>email: ${contactDb[i].data.email}</p>
@@ -36,8 +36,6 @@ function contactTemplate(i) {
         <div class="close" onclick="deleteCard('contacts/', '${contactDb[i].objectId}'), deleteAssigned('${contactDb[i].data.name}')">X</div>
     </div>`
 }
-
-// 
 
 /**
  * Task Template String

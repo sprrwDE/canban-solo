@@ -23,7 +23,8 @@ function getContactInputData(event) {
     let email = emailInputRef.value
     input = {
         name: name,
-        email: email
+        email: email,
+        color: getRandomColor()
     }
     pushDataToFirebase('contacts', input);
     resetContactInputFields();
@@ -99,7 +100,8 @@ let currentContact;
 function renderContactDatabaseObjects() {
     console.log("Kontakte:", contactDb);
     for (let index = 0; index < contactDb.length; index++) {
-        getInitials(index);
+        let initials = getInitials(index);
+        console.log("Nachname Initial:", initials.charAt(1));
         currentContact = contactDb[index].objectId;
         contactDiv.innerHTML += contactTemplate(index);
         fieldset.innerHTML += assignToContact(index);
@@ -113,7 +115,8 @@ function getInitials(i) {
     let nameArray = contactDb[i].data.name.split(" ");
     let first = nameArray[0].charAt(0).toUpperCase();
     let last = nameArray[nameArray.length - 1].charAt(0).toUpperCase();
-    return first, last
+    let initials = `${first}${last}`
+    return initials
 }
 
 /**
@@ -163,4 +166,5 @@ function deleteAssignCard(currentTaskObject, newAssign) {
 }
 
 // Wenn Kontakt editiert wird muss dieser auch bei assigned editiert werden
-// siehe oben nur anderer promis
+    // siehe oben nur anderer promis
+    // daten holen input erstellen bla blub

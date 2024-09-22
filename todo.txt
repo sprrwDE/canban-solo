@@ -12,9 +12,11 @@
 // forms:
     // form validation hinzufügen?
 
+// global:
+    // rnd farben an kontakte übergeben, in firebase speichern
+    // wie an tasks übergeben? als key value task:assigned[contact{name: x, color: y,}] 
+
 /// BONUS WENN ZEIT
-    // global:
-        // rnd farben an kontakte übergeben
     // Update und Performance:
         // Funktion um nur die jeweilige Karte zu Updaten nach edit (find / findindex oder so?)
     // board:
