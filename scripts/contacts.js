@@ -33,15 +33,17 @@ function getContactInputData(event) {
 /**
  * Gets Edit Input Field Data and Stores Data in Object
  */
-function getEditContactData(event, id) {
+function getEditContactData(event, id, i) {
     event.preventDefault()
     editNameInputRef = document.getElementById(`name-${id}`);
     editEmailInputRef = document.getElementById(`email-${id}`);
     let newName = editNameInputRef.value.trim();
     let newEmail = editEmailInputRef.value;
+    let color = contactDb[i].data.color;
     input = {
         name: newName,
-        email: newEmail
+        email: newEmail,
+        color: color
     }
     pushEditDataToFirebase('contacts/', id, input);
     resetEditContactFields();
@@ -109,17 +111,6 @@ function renderContactDatabaseObjects() {
 }
 
 /**
- * Defines initials of current name
- */
-function getInitials(i) {
-    let nameArray = contactDb[i].data.name.split(" ");
-    let first = nameArray[0].charAt(0).toUpperCase();
-    let last = nameArray[nameArray.length - 1].charAt(0).toUpperCase();
-    let initials = `${first}${last}`
-    return initials
-}
-
-/**
  * Deletes Assigned Contact out of Task
  */
 function deleteAssigned(askedname) {
@@ -142,7 +133,8 @@ function deleteAssigned(askedname) {
 function findAllAssigned(name) {
     let results = [];
     for (let i = 0; i < database.length; i++) {
-        if (database[i].data.assigned.includes(name)) {
+        const assignedArray = database[i].data.assigned;
+        if (assignedArray.some(item => item.name === name)) {
             results.push(database[i]);
         }
     }

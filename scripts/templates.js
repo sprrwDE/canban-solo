@@ -4,7 +4,7 @@
 function assignToContact(i) {
     return `
     <div>
-        <input type="checkbox" id="assign-${i}" name="assign-contact" value="${contactDb[i].data.name}">
+        <input type="checkbox" id="assign-${i}" name="assign-contact" value="${contactDb[i].data.name}" data-color="${contactDb[i].data.color}">
         <label for="assign-${contactDb[i].objectId}">${contactDb[i].data.name}</label>
     </div>`;
 }
@@ -30,7 +30,7 @@ function contactTemplate(i) {
             <form>
                 <input type="text" id="name-${contactDb[i].objectId}" placeholder="name">
                 <input type="text" id="email-${contactDb[i].objectId}" placeholder="email">
-                <button class="margin-low" type="submit" onclick="getEditContactData(event, '${contactDb[i].objectId}')">submit</button>
+                <button class="margin-low" type="submit" onclick="getEditContactData(event, '${contactDb[i].objectId}', '${i}')">submit</button>
             </form>
         </div>
         <div class="close" onclick="deleteCard('contacts/', '${contactDb[i].objectId}'), deleteAssigned('${contactDb[i].data.name}')">X</div>
@@ -75,6 +75,6 @@ function subtaskCardTemplate(taskId, sub, n) {
  */
 function assignedCardTemplate(assignedContact) {
     return `
-    <li>${assignedContact}</li>
+    <li>${assignedContact.name}</li>
     `
 }

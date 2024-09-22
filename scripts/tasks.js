@@ -70,7 +70,7 @@ function getInputData(event) {
 }
 
 /**
- *  Gets Checkbox Values and pushes into Array
+ *  Gets Checkbox Values and pushes into Array, saves name and color in object
  */
 function assignTo() {
     let assignRef = document.getElementById('assign');
@@ -78,7 +78,10 @@ function assignTo() {
     let assignedTo = [];
     for (let i = 0; i < assignValues.length; i++) {
         if (assignValues[i].checked) {
-            assignedTo.push(assignValues[i].value);
+            assignedTo.push({
+                name: assignValues[i].value,
+                color: assignValues[i].getAttribute('data-color')
+            });
         }
     }
     return assignedTo;
