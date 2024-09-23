@@ -25,6 +25,8 @@ async function pushDataToFirebase(path = "", input) {
     } finally {
         await initializeContacts();
         await inititializeBoard();
+        await initializeSignup();
+
     }
 }
 

@@ -68,14 +68,52 @@
                 </div>
             </div>
         </section>
-        <script src="./script.js"></script>
-        <script src="./scripts/database.js"></script>
-        <script src="./scripts/contacts.js"></script>
-        <script src="./scripts/tasks.js"></script>
-        <script src="./scripts/templates.js"></script>
-        <script src="./scripts/board.js"></script>
+        <!-- login section -->
+        <section class="login" id="login">
+            <div class="maincontainer container log">
+                <h1 class="title">MOIN</h1>
+                <div class="form-wrapper">
+                    <!-- signup form -->
+                    <div class="signup-div">
+                        <form class="task">
+                            <h1>SIGNUP</h1>
+                            <P>email</P>
+                            <input type="text" id="signup-email">
+                            <P>password</P>
+                            <input type="text" id="signup-pw">
+                            <button class="margin-low" type="submit" onclick="getSignupInputData(event)">submit</button>
+                        </form>
+                    </div>
+                    <!-- login form -->
+                    <div class="login-div">
+                        <form class="task">
+                            <h1>LOGIN</h1>
+                            <P>email</P>
+                            <input type="text" id="login-name">
+                            <P>password</P>
+                            <input type="text" id="login-pw">
+                            <div class="login-btns"> <button class="margin-low btnlog" type="submit"
+                                    onclick="getLoginInputData(event)">Login</button>
+                                <button class="margin-low btnlog" id="guest-login" onclick="logIn(event)">Guest
+                                    Login</button>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer></footer>
+    <footer>
+        <button id="logout" onclick="logOut()">Logout</button>
+    </footer>
+    <script src="./script.js"></script>
+    <script src="./scripts/login.js"></script>
+    <script src="./scripts/database.js"></script>
+    <script src="./scripts/contacts.js"></script>
+    <script src="./scripts/tasks.js"></script>
+    <script src="./scripts/templates.js"></script>
+    <script src="./scripts/board.js"></script>
 </body>
 
 </html>

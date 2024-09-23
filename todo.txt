@@ -12,10 +12,6 @@
 // forms:
     // form validation hinzufügen?
 
-// global:
-    // rnd farben an kontakte übergeben, in firebase speichern
-    // wie an tasks übergeben? als key value task:assigned[contact{name: x, color: y,}] 
-
 /// BONUS WENN ZEIT
     // Update und Performance:
         // Funktion um nur die jeweilige Karte zu Updaten nach edit (find / findindex oder so?)
@@ -26,7 +22,8 @@
         // assigned im board löschbar machen ohne dass kontakt gelöscht wird
         // Wenn Kontakt editiert wird muss dieser auch im task bei assigned editiert werden
 
-->> Allgemein Array Methoden vertiefen (reduce, sort, map, filter, object.entries?)
+
+->> Allgemein Array, Object, String Methoden vertiefen (reduce, sort, map, filter, sort, Oject.entries und konsorten?)
 ->> Rausfinden was man mit strings alles anstellen kann LOL 
 ->> Arrow Functions vertiefen
 ->> For Each Schleifen verwenden?

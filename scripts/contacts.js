@@ -100,6 +100,7 @@ let currentContact;
  * Renders Database in DOM
  */
 function renderContactDatabaseObjects() {
+    // Für Alphabet liste deal with it
     console.log("Kontakte:", contactDb);
     for (let index = 0; index < contactDb.length; index++) {
         let initials = getInitials(index);
