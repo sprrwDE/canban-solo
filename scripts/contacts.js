@@ -100,15 +100,47 @@ let currentContact;
  * Renders Database in DOM
  */
 function renderContactDatabaseObjects() {
-    // Für Alphabet liste deal with it
-    console.log("Kontakte:", contactDb);
-    for (let index = 0; index < contactDb.length; index++) {
-        let initials = getInitials(index);
-        console.log("Nachname Initial:", initials.charAt(1));
-        currentContact = contactDb[index].objectId;
-        contactDiv.innerHTML += contactTemplate(index);
-        fieldset.innerHTML += assignToContact(index);
+    loadAssigned();
+    const sortedContacts = sortContactInitials()
+    const sortedContactsArray = Object.entries(sortedContacts).sort()
+    contactDiv.innerHTML = '';
+    for (let index = 0; index < sortedContactsArray.length; index++) {
+        contactDiv.innerHTML += sortedInitials(index, sortedContactsArray)
+        let groupedContacts = sortedContactsArray[index][1]
+        const contactDivRev = document.getElementById(`render-contacts${index}`)
+        contactDivRev.innerHTML = '';
+
+        for (let c = 0; c < groupedContacts.length; c++) {
+            contactDivRev.innerHTML += contactTemplate(groupedContacts, c);
+        }
     }
+}
+
+/**
+ * Rendes Contacts into Task Form to Assign
+ */
+function loadAssigned() {
+    fieldset.innerHTML = '';
+    for (let a = 0; a < contactDb.length; a++) {
+        currentContact = contactDb[a].objectId;
+        fieldset.innerHTML += assignToContact(a);
+    }
+}
+
+/**
+ * Reduces Contact DB into Object and Sorts Initials
+ */
+function sortContactInitials() {
+    return contactDb.reduce((result, contact) => {
+        const contactNameArray = contact.data.name.split(" ")
+        const lastName = contactNameArray[contactNameArray.length - 1]
+        const initial = lastName.charAt(0).toUpperCase()
+        if (!result[initial]) {
+            result[initial] = []
+        }
+        result[initial].push(contact)
+        return result;
+    }, {});
 }
 
 /**
@@ -159,5 +191,5 @@ function deleteAssignCard(currentTaskObject, newAssign) {
 }
 
 // Wenn Kontakt editiert wird muss dieser auch bei assigned editiert werden
-    // siehe oben nur anderer promis
-    // daten holen input erstellen bla blub
+// siehe oben nur anderer promis
+// daten holen input erstellen bla blub

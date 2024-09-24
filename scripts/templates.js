@@ -17,23 +17,32 @@ function subTaskTemplate(i) {
     <li>${subtasks[i]} | <span class="pointer" onclick="deleteSubtask(${[i]})">x</span></li>`
 } 
 
+
+/**
+ *  Sorted Contact Initials
+ */
+function sortedInitials(i, sortedContactsArray) {
+    return `<h1>${sortedContactsArray[i][0]}</h1>
+    <div class="rendercontacts" id="render-contacts${i}"></div>`
+}
+
 /**
  * Contact Template String
  */
-function contactTemplate(i) {
+function contactTemplate(groupedContacts, i) {
     return `
-    <div class="card" id="card-${contactDb[i].objectId}" style="background-color: ${contactDb[i].data.color}">
+    <div class="card" id="card-${groupedContacts[i].objectId}" style="background-color: ${groupedContacts[i].data.color}">
         <div class="content contact">
-            <p>name: ${contactDb[i].data.name}</p>
-            <p>email: ${contactDb[i].data.email}</p>
+            <p>name: ${groupedContacts[i].data.name}</p>
+            <p>email: ${groupedContacts[i].data.email}</p>
             <h4 class="margin-low">Edit<h4>
             <form>
-                <input type="text" id="name-${contactDb[i].objectId}" placeholder="name">
-                <input type="text" id="email-${contactDb[i].objectId}" placeholder="email">
-                <button class="margin-low" type="submit" onclick="getEditContactData(event, '${contactDb[i].objectId}', '${i}')">submit</button>
+                <input type="text" id="name-${groupedContacts[i].objectId}" placeholder="name">
+                <input type="text" id="email-${groupedContacts[i].objectId}" placeholder="email">
+                <button class="margin-low" type="submit" onclick="getEditContactData(event, '${groupedContacts[i].objectId}', '${i}')">submit</button>
             </form>
         </div>
-        <div class="close" onclick="deleteCard('contacts/', '${contactDb[i].objectId}'), deleteAssigned('${contactDb[i].data.name}')">X</div>
+        <div class="close" onclick="deleteCard('contacts/', '${groupedContacts[i].objectId}'), deleteAssigned('${groupedContacts[i].data.name}')">X</div>
     </div>`
 }
 

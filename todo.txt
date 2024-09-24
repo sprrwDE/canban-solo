@@ -1,16 +1,7 @@
-// Contacts
-    // Render nach Initialen
-        // mit contactDb arbeiten 
-        // reduce scheint der way to go? als parameter leeres objekt, syntax ergooglen mit accumulator {}
-        // dadurch neues objekt "sortedContacts" oder so erzeugen?
-            // prüfen ob initiale schon besteht, falls ja verwenden falls nein leeres array erstellen
-        // 2 For schleifen zum rendern
-
-// Login:
-    // bauen mit if pw === x / else?
-
 // forms:
     // form validation hinzufügen?
+
+// Bugs finden und fixen
 
 /// BONUS WENN ZEIT
     // Update und Performance:
@@ -23,7 +14,9 @@
         // Wenn Kontakt editiert wird muss dieser auch im task bei assigned editiert werden
 
 
-->> Allgemein Array, Object, String Methoden vertiefen (reduce, sort, map, filter, sort, Oject.entries und konsorten?)
+->> Allgemein Array, Object, String Methoden vertiefen 
+    (reduce, sort, map, filter, sort, find, includes, Oject.entries und konsorten?)
+    reduce, map, object.entries sind die kompliziertesten
 ->> Rausfinden was man mit strings alles anstellen kann LOL 
 ->> Arrow Functions vertiefen
 ->> For Each Schleifen verwenden?
